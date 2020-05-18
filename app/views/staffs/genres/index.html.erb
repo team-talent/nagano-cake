@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset_1">
+      <span class="title_staffs_genre">
+        <h3>ジャンル一覧・追加</h3>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+    	<%= form_for(@genre, url:staffs_genres_path) do |f| %>
+    		<div class="field">
+    			<%= f.label :ジャンル %>
+    			<%= f.text_field :category_name, autofocus: true %>
+    			<%= f.radio_button :genre_status, :true %>
+    			<%= f.label :genre_status, :有効 %>
+    			<%= f.radio_button :genre_status, :false %>
+    			<%= f.label :genre, :無効 %>
+    			<%= f.submit "追加", class: "btn btn-primary" %>
+    	<% end %>
+
+    	<table class="table">
+    		<thread>
+	    		<tr>
+	    			<th>ジャンル</th>
+	    			<th>状態</th>
+	    		</tr>
+    		</thread>
+    		<tbody>
+    			<% @genres.each do |genres| %>
+    				<tr>
+    					<td><%= genres.category_name %></td>
+    					<td><%= genres.genre_status %></td>
+    				</tr>
+    			<% end %>
+    		</tbody>
+    	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

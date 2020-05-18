@@ -25,9 +25,61 @@
 
 header {
     height:70px;
-  	
 }
 
 body{
 	margin-top:150px;
 }
+
+
+/* 管理者ログイン画面用 */
+
+.email_input{
+	width: 300px;
+    height: 40px;
+    margin-left:20px;
+}
+
+.password_input{
+	width: 300px;
+    height: 40px;
+    margin-left:20px;
+    margin-bottom:40px;
+}
+
+.title_staffs_login{
+	display:block;
+	margin-bottom:100px;
+	background-color:#CCCCCC;
+	text-align: center;
+}
+/* 管理者ログイン画面用 */
+
+
+/* 管理者トップ画面用 */
+
+.title_staffs_top{
+	display:block;
+	margin-bottom:100px;
+	background-color:#CCCCCC;
+	text-align: center;
+}
+
+.order_count{
+	display:block;
+	font-size:30px;
+	margin-left:200px;
+}
+
+/* 管理者トップ画面用 */
+
+
+/* 管理者ジャンル一覧・追加画面用 */
+
+.title_staffs_genre{
+	display:block;
+	margin-bottom:100px;
+	background-color:#CCCCCC;
+	text-align: center;
+}
+

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 		resources :products, only:[:index, :show, :new, :edit, :create, :update]
 		resources :genres, only:[:index, :edit, :create, :update]
 		resources :orders, only:[:index, :show]
+		get "/homes", to: "homes#top"
 	end
 
 end
