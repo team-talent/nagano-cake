@@ -11,23 +11,34 @@
 
   <body>
 
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container" style="background-color: white;">
+    <header class="navbar navbar-fixed-top" style="background-color: gray;">
+      <div class="container">
         <nav class="nav navbar-nav navber-left">
-               <span style="color: black;">LOGO</span>
+             <div class="logo" style="">
+               <span style="color: white;">LOGO</span>
+             </div>
         </nav>
         <nav>
         <ul class="nav navbar-nav navbar-right">
-          <li class="">
-            <a class="" href="#"  role="button">商品一覧</a>
+
+            <% if customer_signed_in? %>
+
+             <%= render"layouts/customer_header" %>
+
+          <% elsif staff_signed_in? %>
+            
+            <%= render"layouts/staff_header" %>
+
+          <% else %>
+
+         
+          <li><%= link_to ' 商品一覧', customer_session_path, class:"btn btn-default btn-xs"  %></li>
+          <li><%= link_to ' 新規登録', new_customer_registration_path, class:"btn btn-default btn-xs"  %></li>
+          <li><%= link_to ' ログイン', new_customer_session_path, class:"btn btn-default btn-xs"  %></li>
           </li>
-          <li class="">
-            <a class="" href="#" role="button">新規登録</a>
-          </li>
-          <li class="">
-            <a class="" href="#" role="button">ログイン</a>
-          </li>
+          <% end %>
         </ul>
+
       </nav>
       </div>
     </header>
