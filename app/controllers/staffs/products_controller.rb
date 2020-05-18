@@ -1,7 +1,9 @@
 class Staffs::ProductsController < ApplicationController
 
 	def new
-		@product = Product.new 
+		@product = Product.new
+		@genres = Genre.where(genre_status: true)
+
 	end
 
 	def create
@@ -12,7 +14,7 @@ class Staffs::ProductsController < ApplicationController
 
 	def index
 		@products = Product.all
-		
+
 	end
 
 	def show

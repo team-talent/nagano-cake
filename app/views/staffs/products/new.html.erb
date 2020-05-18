@@ -27,7 +27,9 @@
 					</tr>
 					<td>
 						<h4>ジャンル</h4>
-						<%= f.collection_select :genre_id, Genre.all, :id, :category_name, include_blank: "選択して下さい" %>
+						
+						<%= f.collection_select :genre_id, @genres, :id, :category_name, include_blank: "選択して下さい" %>
+						
 					</td>
 				
 					<tr>
