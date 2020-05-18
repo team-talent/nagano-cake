@@ -25,12 +25,13 @@ class Staffs::ProductsController < ApplicationController
 
 	def edit
 		@product = Product.find(params[:id])
+		@genres = Genre.where(genre_status: true)
 	end
 
 	def update
 		@product = Product.find(params[:id])
-		@product.update
-		redirect_to staffs_product_path
+		@product.update(product_params)
+		redirect_to staffs_product_path(@product)
 	end
 
 	private
