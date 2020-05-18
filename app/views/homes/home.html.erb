@@ -1,1 +1,35 @@
-元気ですか
+<div class="container">
+	<div class="row">
+		<div class="col-xs-2" >
+
+			<%= render"genre_search" %>
+
+		</div>
+
+		<div class="col-xs-10">
+
+			<p>ようこそ、NaganoCakeへ！<br>
+				このサイトは、ケーキ販売のECサイトになります。<br>
+				会員ではない方も商品の閲覧はできますが、<br>
+				購入には会員登録が必要になります。
+			</p>
+
+
+
+			<h3>オススメ商品</h3>
+
+			<% @products.each do |product| %>
+
+			<tr>
+				<td><%= attachment_image_tag product, :profile_image, fallback: "no_image.jpg", size:'40x40' %></td>
+				<td>product.name</td>
+				<td>product.price</td>
+			</tr>
+
+			<% end %>
+
+
+			<%= link_to "もっと見る>", "", class:"col-xs-3 col-xs-offset-9" %>
+
+	</div>
+</div>
