@@ -22,22 +22,33 @@
     			<%= f.submit "追加", class: "btn btn-primary" %>
     	<% end %>
 
-    	<table class="table">
+    	<table class="table" style="margin-top:30px;">
     		<thread>
 	    		<tr>
 	    			<th>ジャンル</th>
 	    			<th>状態</th>
+                    <th></th>
 	    		</tr>
     		</thread>
     		<tbody>
     			<% @genres.each do |genres| %>
     				<tr>
     					<td><%= genres.category_name %></td>
-    					<td><%= genres.genre_status %></td>
+    					<td>
+                            <% if genres.genre_status == true %>
+                                <p>有効</p>
+                            <% else %>
+                                <p>無効</p>
+                            <% end %>
+                        </td>
+                        <td><%= link_to '編集', edit_staffs_genre_path(genres), class: "btn btn-primary btn-xs" %></td>
     				</tr>
     			<% end %>
     		</tbody>
     	</table>
+    </div>
+  </div>
+</div>
 
 
 
