@@ -1,0 +1,50 @@
+<div class="container">
+	<dix class="row">
+		<div class="col-xs-5">
+
+			<h2>商品詳細</h2>
+		</div>
+		<div class="col-xs-7">
+			<table class="table">
+				<tbody>
+					<tr>
+						<td>
+							<h4>商品名</h4>
+							<%= @product.name %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>商品説明</h4>
+							<%= @product.explain %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>ジャンル</h4>
+							<%= @category_name %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>税込価格（税抜き価格）</h4>
+							<%= @product.price %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>販売ステータス</h4>
+							<% if @product.sale_status == 1 %> 
+							<p>販売中</p>
+							<% else %>
+							<p>売切れ</p>
+							<% end %>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<%= link_to '編集する', edit_staffs_product_path(@product), class: "btn-sm btn-success"%>
+		</div>
+	</dix>
+</div>
