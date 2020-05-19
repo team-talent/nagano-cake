@@ -14,11 +14,11 @@ Rails.application.routes.draw do
 	devise_for :customers
 
 	namespace :staffs do
+		root "homes#top"
 		resources :customers, only:[:index, :show, :edit, :update]
 		resources :products, only:[:index, :show, :new, :edit, :create, :update]
 		resources :genres, only:[:index, :edit, :create, :update]
 		resources :orders, only:[:index, :show]
-		get "/homes", to: "homes#top"
 	end
 
 end
