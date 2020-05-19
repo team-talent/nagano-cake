@@ -1,26 +1,39 @@
-<h3>ショッピングカート</h3>
-<table>
-  <thead>
-    <tr>
-      <th>商品名</th>
-      <th>単価（税込）</th>
-      <th>数量</th>
-      <th>小計</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>ぷりん</td>
-      <td></td>
-      <td>
-        <%= form_for(@cart) do |f| %>
-        <%= f.number_field :vol %>
-        <%= f.submit "変更" %>
+<div class="container">
+  <div class="row">
+    <h3>ショッピングカート</h3>
+    
+    <%= link_to 'カートを空にする', cart_path(@cart), method: :delete, class: "btn btn-danger" %>
+    <table>
+      <thead>
+        <tr>
+          <th>商品名</th>
+          <th>単価（税込）</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @carts.each do |cart| %>
+          <tr>
+            <td><%= cart.product.name %></td>
+            <td><%= cart.product.price %></td>
+            <td>
+              <%= form_for(cart) do |f| %>
+                <%= f.number_field :vol %>
+                <%= f.submit "変更",class: "btn btn-primary" %>
+              <% end %>
+            </td>
+            <td>￥　<%= cart.product.price * cart.vol %></td>
+            <td>
+              <%= link_to '削除する', cart_path(cart), method: :delete, class: "btn btn-danger" %>
+            </td>
+          </tr>
         <% end %>
-      </td>
-      <td>電卓使え</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+      </tbody>
+    </table>
+
+    <%= link_to '買い物を続ける', products_path, class: "btn btn-primary" %>
+    <%= @total %>
+  </div>
+</div>
