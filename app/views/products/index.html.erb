@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+      <%= render 'list' %>
+    </div>
+
+    <div class="col-xs-9">
+      <h2>商品一覧</h2>
+      <span>（全x件）</span>
+      <div class="row">
+
+        <% @products.each do |product| %>
+          <div class="col-xs-3">
+          <div class="row">
+            <%= link_to product_path(product.id) do %>
+              <%= attachment_image_tag product, :image, fallback: "no_image.jpg", size: "200x100" %>
+            <% end %>
+          </div>
+          <div class="row"><%= product.name %></div>
+          <div class="row">￥<%= product.price %></div>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
