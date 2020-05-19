@@ -3,6 +3,9 @@
 		<div class="col-xs-5">
 
 			<h2>商品詳細</h2>
+
+			<%= attachment_image_tag(@product, :image, size:'150x150', format: 'jpeg', class: "img-square pull-left profile-img", fallback: "no_image.jpg") %>
+
 		</div>
 		<div class="col-xs-7">
 			<table class="table">
@@ -28,7 +31,8 @@
 					<tr>
 						<td>
 							<h4>税込価格（税抜き価格</h4>
-							<%= @product.price %>円(<%= @product.price %>円）
+							<% addtax= @product.price * 1.1 %>
+							<%= addtax.round %>円(<%= @product.price %>円）
 						</td>
 					</tr>
 					<tr>
