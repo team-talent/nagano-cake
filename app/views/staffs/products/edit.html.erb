@@ -7,46 +7,48 @@
 
           <%= form_for(@product,url:staffs_product_path) do |f| %>
 
-			<%= attachment_image_tag(@product, :image_id, size:'150x150', fallback: "no_image.jpg") %>
-				</div>
-				<div class="col-xs-7">
-					<table class="table">
-						<tbody>
-						    <tr>
-								<td>
-									<h4>商品名</h4>
-									<%= f.text_field :name %>
-								</td>
-							</tr>
-							<tr>
-		                 		<td>
-									<h4>商品説明</h4>
-									<%= f.text_area :explain %>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h4>ジャンル</h4>
-									<%= f.collection_select :genre_id, @genres, :id, :category_name, include_blank: "選択して下さい" %>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h4>税抜き価格</h4>
+				<%= attachment_image_tag(@product, :image, size:'150x150', fallback: "no_image.jpg") %>
+				<%= f.attachment_field :image, class: "product_image" %>
 
-									<%= f.text_field :price %>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h4>販売ステータス</h4>
-									<%= f.select :sale_status,[["販売中", "1"], ["売切れ", "2"]], include_blank: "選択して下さい" %>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				    <%= f.submit '変更を保存', class: "btn-sm btn-success"%>
-		    <% end %>
+		</div>
+		<div class="col-xs-7">
+			<table class="table">
+				<tbody>
+				    <tr>
+						<td>
+							<h4>商品名</h4>
+							<%= f.text_field :name %>
+						</td>
+					</tr>
+					<tr>
+                 		<td>
+							<h4>商品説明</h4>
+							<%= f.text_area :explain %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>ジャンル</h4>
+							<%= f.collection_select :genre_id, @genres, :id, :category_name, include_blank: "選択して下さい" %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>税抜き価格</h4>
+
+							<%= f.text_field :price %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h4>販売ステータス</h4>
+							<%= f.select :sale_status,[["販売中", "1"], ["売切れ", "2"]], include_blank: "選択して下さい" %>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		        <%= f.submit '変更を保存', class: "btn-sm btn-success"%>
+		  <% end %>
 	    </div>
 	</dix>
 </div>
