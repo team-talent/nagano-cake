@@ -1,7 +1,6 @@
 class CartsController < ApplicationController
-	def show
+	def index
     @carts = current_customer.carts.all
-    @cart = Cart.find(params[:id])
     array = []
     @carts.each do |carts|
       array << carts.product.price * carts.vol
@@ -13,25 +12,24 @@ class CartsController < ApplicationController
     cart = Cart.new(cart_params)
     cart.customer_id = current_customer.id
     cart.save
-    redirect_to cart_path(cart.id)
+    redirect_to carts_path
   end
 
   def update
-    @cart = Cart.find(params[:id])
+    @cart = Cart.find_by(customer_id: current_customer.id)
     @cart.update(cart_params)
     redirect_back(fallback_location: root_path)
   end
 
   def destroy
-    cart = Cart.find(params[:id])
+    cart = Cart.find_by(customer_id: current_customer.id)
     cart.destroy
     redirect_back(fallback_location: root_path)
   end
 
   def destroy_all
-    carts = current_customer.carts.all
-    carts.destroy
-    redirect_to products_path
+    current_customer.carts.destroy_all
+    redirect_to carts_path
   end
 
   private
