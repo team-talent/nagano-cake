@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-3">
-      <%= render 'list' %>
+      <%= render 'list', genres: @genres %>
     </div>
 
     <div class="col-xs-9">
@@ -23,7 +23,7 @@
           </div>
 
           <div class="row">
-            <%= form_for(@cart) do |f|%>
+            <%= form_for(@cart, url:carts_path) do |f|%>
             <%= f.select :vol, [["1",1],["2",2],["3",3],["4",4],["5",5]], prompt: "個数選択" %>
             <%= f.submit %>
             <% end %>
