@@ -1,0 +1,83 @@
+<div class="container">
+	<dix class="row">
+		<div class="col-xs-8 col-xs-offset-2">
+
+			<h2>会員詳細</h2>
+
+			<table class="table">
+				<tbody>
+					<tr>
+						<td>
+							
+								<h4>顧客ID</h4>
+							
+							<th>
+								<%= @customer.id %>
+							</th>
+							<th>
+								<% if @customer.customer_status == false %>
+								  <span style="display: block; border: solid 3px #00000; ">有効会員</span>
+								<% else %>
+								   <span>退会済</span>
+								<% end %>
+							</th>
+
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<h4>氏名</h4>
+						</th>
+						<th>
+							<%= @customer.last_name %>
+							<%= @customer.first_name %>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<h4>フリガナ</h4>
+						</th>
+						<th>
+							<%= @customer.last_name_kana %>
+							<%= @customer.first_name_kana %>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<h4>郵便番号</h4>
+						</th>
+						<th>
+							<%= @customer.postal_code %>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<h4>住所</h4>
+						</th>
+						<th>
+							<%= @customer.address %>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<h4>電話番号</h4>
+						</th>
+						<th>
+							<%= @customer.tel %>
+						</th>
+					</tr>
+					<tr>
+						<th>
+							<h4>メールアドレス</h4>
+						</th>
+						<th>
+							<%= @customer.email %>
+						</th>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+		</div>
+	</dix>
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+	<dix class="row">
+		<div class="col-xs-9 col-xs-offset-1">
+			<h2>会員一覧</h2>
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th>会員ID</th>
+						<th>氏名</th>
+						<th>メールアドレス</th>
+						<th>ステータス</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @customers.each do |customer| %>
+					<tr>
+						<td><%= customer.id %></td>
+						<% name= customer.last_name + customer.first_name %>
+						<td><%= link_to name, staffs_customer_path(customer.id), class: "customer_#{customer.id}" %>
+						</td>
+						<td><%= customer.email %></td>
+
+						<td>
+							<% if customer.customer_status == false %>
+							  <p>有効</p>
+							<% else %>
+							   <p>退会済</p>
+							<% end %>
+							 
+						</td>	
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</dix>
+</div>

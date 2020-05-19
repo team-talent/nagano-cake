@@ -9,7 +9,7 @@ class Staffs::ProductsController < ApplicationController
 	def create
 		product = Product.new(product_params)
 		product.save
-		redirect_to staffs_products_path
+		redirect_to staffs_product_path(product)
 	end
 
 	def index
@@ -36,6 +36,6 @@ class Staffs::ProductsController < ApplicationController
 
 	private
 	def product_params
-		params.require(:product).permit(:image_id, :name, :explain, :genre_id, :price, :sale_status)
+		params.require(:product).permit(:image, :name, :explain, :genre_id, :price, :sale_status)
 	end
 end
