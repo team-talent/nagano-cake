@@ -28,6 +28,12 @@ class CartsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def destroy_all
+    carts = current_customer.carts.all
+    carts.destroy
+    redirect_to products_path
+  end
+
   private
   def cart_params
     params.require(:cart).permit(:vol, :product_id)
