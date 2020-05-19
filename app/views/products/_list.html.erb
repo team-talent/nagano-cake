@@ -1,17 +1,12 @@
 <h4>ジャンル検索</h4>
 <table class="table">
   <tbody>
+    <% genres.each do |genre| %>
     <tr>
-      <th><%= link_to 'ケーキ', customer_session_path %></th>
+      <th>
+        <%= link_to genre.category_name, genre_product_index_product_path(genre) %>
+      </th>
     </tr>
-    <tr>
-      <th><%= link_to '焼き菓子', customer_session_path %></th>
-    </tr>
-    <tr>
-      <th><%= link_to 'ぷりん', customer_session_path %></th>
-    </tr>
-    <tr>
-      <th><%= link_to 'キャンディ', customer_session_path %></th>
-    </tr>
+    <% end %>
   </tbody>
 </table>
