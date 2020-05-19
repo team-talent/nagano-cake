@@ -2,6 +2,11 @@
 	<dix class="row">
 		<div class="col-xs-9 col-xs-offset-1">
 			<h2>商品一覧</h2>
+            <p class="text-right">
+	            <%= link_to new_staffs_product_path(@product) do %>
+					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+				<% end %>
+		    </p>
 
 			<table class="table">
 				<thead>
