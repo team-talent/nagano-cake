@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 		end
 	resources :destinations, only:[:index, :edit, :create, :update, :destroy]
 	resources :orders, only:[:index, :show, :new, :create]
-	resources :carts, only:[:show, :create, :update, :destroy]
+	resources :carts, only:[:show, :create, :update, :destroy] do
+		delete :destroy_all, on: :member
+	end
 
 	devise_for :staffs
 	devise_for :customers
