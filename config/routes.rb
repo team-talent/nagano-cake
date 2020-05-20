@@ -4,8 +4,11 @@ Rails.application.routes.draw do
     get "/homes/thanks", to: "homes#thanks"
     get "/homes/about", to: "homes#about"
 
-	resource :customers, only:[:show, :edit, :update] do
+    devise_for :customers
+
+	resource :customers, only:[:show, :update] do
 		member do
+			get :edit_update
 			get :hide
 			patch :hide_update
 		end
@@ -20,7 +23,6 @@ Rails.application.routes.draw do
 	end
 
 	devise_for :staffs
-	devise_for :customers
 
 	namespace :staffs do
 		root "homes#top"
