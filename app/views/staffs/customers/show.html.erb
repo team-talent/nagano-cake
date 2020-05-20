@@ -2,14 +2,15 @@
 	<dix class="row">
 		<div class="col-xs-8 col-xs-offset-2">
 
-			<h2>会員詳細</h2>
+			<span class="pull-left" style="background-color: #C0C0C0; font-size: 1.5em; margin-bottom: 40px;">
+				<%= @customer.last_name %>
+				<%= @customer.first_name %>さんの会員詳細</span>
 
 			<table class="table">
 				<tbody>
 					<tr>
 						<td>
-							
-								<h4>顧客ID</h4>
+							<h4>顧客ID</h4>
 							
 							<th>
 								<%= @customer.id %>
@@ -76,6 +77,10 @@
 					</tr>
 				</tbody>
 			</table>
+
+			<%= link_to '編集する', edit_staffs_customer_path(@customer), class: "btn-sm btn-primary", data: {"turbolinks" => false} %>
+
+			<%= link_to '注文履歴一覧を見る', root_path, class: "btn-sm btn-primary", data: {"turbolinks" => false} %>
 			
 			
 		</div>

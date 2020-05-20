@@ -21,5 +21,5 @@ class Staffs::CustomersController < ApplicationController
 	def customer_params
 		params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :tel, :email, :postal_code, :address, :customer_status)
 	end
-end
+
 end

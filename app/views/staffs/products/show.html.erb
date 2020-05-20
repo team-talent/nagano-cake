@@ -1,8 +1,10 @@
 <div class="container">
 	<dix class="row">
-		<div class="col-xs-5">
+		<span class="pull-left" style="background-color: #C0C0C0; font-size: 1.5em; margin-bottom: 40px;">商品詳細</span>
+	</dix>
 
-			<h2>商品詳細</h2>
+	<dix class="row">
+		<div class="col-xs-5">
 
 			<%= attachment_image_tag(@product, :image, size:'200x200', format: 'jpeg', class: "img-square pull-left profile-img", fallback: "no_image.jpg") %>
 

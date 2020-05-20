@@ -2,18 +2,19 @@
 	<dix class="row">
 		<div class="col-xs-5">
 
+			<div class="row">
+				<span class="pull-left" style="background-color: #C0C0C0; font-size: 1.5em; margin-bottom: 40px;">商品編集
+				</span>
+			</div>
 
-　　　　　　<h2>商品編集</h2>
-
-          <%= form_for(@product,url:staffs_product_path) do |f| %>
-
+				<%= form_for(@product,url:staffs_product_path) do |f| %>
 				<%= attachment_image_tag(@product, :image, size:'200x200', fallback: "no_image.jpg") %>
 				<%= f.attachment_field :image, class: "product_image" %>
-
 		</div>
+
 		<div class="col-xs-7">
 			<table class="table">
-				<tbody>
+				<tbody>	
 				    <tr>
 						<td>
 							<h4>商品名</h4>

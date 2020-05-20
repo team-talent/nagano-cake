@@ -1,0 +1,111 @@
+<div class="container">
+	<dix class="row">
+		<div class="col-xs-10 col-xs-1">
+
+			<div class="row">
+				<span class="pull-left" style="background-color: #C0C0C0; font-size: 1.5em; margin-bottom: 40px;">
+					<%= @customer.last_name %>
+					<%= @customer.first_name %>さんの会員情報編集
+				</span>
+			</div>
+
+	 		<%= form_for(@customer,url:staffs_customer_path) do |f| %>
+
+	 			<div class="row">
+			      	<div class="col-xs-3">
+			      		<h4>会員ID</h4>
+			        </div>
+			        <div class="col-xs-9">
+			        	<div class="row", style="margin-top: 5px;">		
+			     　　　　<%= @customer.id %>		
+			     　　　　</div>
+			     	</div>
+			    </div>
+
+			    <div class="row">
+			      	<div class="col-xs-3">
+			      		<h4>氏名</h4>
+			        </div>
+			        <div class="col-xs-9">
+			        	<div class="row", style="margin-top: 5px;">		
+			     　　　　<%= f.text_field :last_name %>		
+			     　　　　<%= f.text_field :first_name %>
+			 			</div>
+			     	</div>
+			    </div>
+
+			    <div class="row">
+			      	<div class="col-xs-3">
+			      		<h4>フリガナ</h4>
+			        </div>
+			        <div class="col-xs-9">
+			        	<div class="row", style="margin-top: 5px;">		
+			     　　　　<%= f.text_field :last_name_kana %>		
+			     　　　　<%= f.text_field :first_name_kana %>
+			 			</div>
+			     	</div>
+			    </div>
+
+			    <div class="row">
+			      	<div class="col-xs-3">
+			      		<h4>郵便番号</h4>
+			        </div>
+			        <div class="col-xs-9">
+			        	<div class="row", style="margin-top: 5px;">		
+			     　　　　<%= f.text_field :postal_code, size:"47" %>
+			 			</div>
+			     	</div>
+			    </div>
+
+			    <div class="row">
+			      	<div class="col-xs-3">
+			      		<h4>住所</h4>
+			        </div>
+			        <div class="col-xs-9">
+			        	<div class="row", style="margin-top: 5px;">		
+			     　　　　<%= f.text_field :address %>
+			 			</div>
+			     	</div>
+			    </div>
+			        
+	        	<div class="row">
+			      	<div class="col-xs-3">
+			      		<h4>電話番号</h4>
+			        </div>
+			        <div class="col-xs-9">
+			        	<div class="row", style="margin-top: 5px;">		
+			     　　　　<%= f.text_field :tel %>
+			 			</div>
+			     	</div>
+			    </div>
+
+			    <div class="row">
+			      	<div class="col-xs-3">
+			      		<h4>メールアドレス</h4>
+			        </div>
+			        <div class="col-xs-9">
+			        	<div class="row", style="margin-top: 5px;">		
+			     　　　　<%= f.text_field :email, autofocus: true, autocomplete: "email" %>
+			 			</div>
+			     	</div>
+			    </div>
+
+		    	<div class="row">
+			      	<div class="col-xs-3">
+			      		<h4>会員ステータス</h4>
+			        </div>
+			        <div class="col-xs-9">
+			        	<div class="row", style="padding-top: 8px;">	
+						    <%= f.radio_button :customer_status, :false %>有効
+			    			<%= f.radio_button :customer_status, :true %>退会済み
+		    			</div>
+		    		</div>
+		    	</div>
+
+			    <div class="row", style="margin-top: 20px;">  
+		        	<%= f.submit '変更を保存する', class: "btn-sm btn-primary"%>
+		    	</div>
+		    <% end %>
+	    </div>
+	</dix>
+</div>
