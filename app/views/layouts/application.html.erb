@@ -7,17 +7,21 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Londrina+Shadow" rel="stylesheet">
   </head>
 
   <body>
 
-    <header class="navbar navbar-fixed-top" style="background-color: gray;">
+    <header class="navbar navbar-fixed-top" style="background-color: pink ;">
       
       <div class="row">
         <div class="col-xs-10 col-xs-offset-1">
           <nav class="nav navbar-nav navber-left">
-               <div class="logo" style="">
-                 <span style="color: white;">LOGO</span>
+               <div class="logo">
+                  <span class="logo_span text-right" style="color:white;">naganoCAKE</span>
+                  <div class="logo_image">
+                    <%= image_tag('logo.png', class: "logo-img", style: "width: 60px; height: 60px;") %>
+                  </div>
                </div>
           </nav>
           <nav>
@@ -33,9 +37,9 @@
 
                 <% else %>
 
-                  <li><%= link_to ' 商品一覧', customer_session_path, class:"btn btn-default btn-xs"  %></li>
-                  <li><%= link_to ' 新規登録', new_customer_registration_path, class:"btn btn-default btn-xs"  %></li>
-                  <li><%= link_to ' ログイン', new_customer_session_path, class:"btn btn-default btn-xs"  %></li>
+                  <li><%= link_to ' 商品一覧', customer_session_path, class:"btn btn-default btn-sm allbtn"  %></li>
+                  <li><%= link_to ' 新規登録', new_customer_registration_path, class:"btn btn-default btn-sm allbtn"  %></li>
+                  <li><%= link_to ' ログイン', new_customer_session_path, class:"btn btn-default btn-sm allbtn"  %></li>
                     </li>
                   <% end %>
 

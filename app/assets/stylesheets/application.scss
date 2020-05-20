@@ -24,12 +24,51 @@
 }
 
 header {
-    height:70px;
+    height:115px;
 }
 
 body{
 	margin-top:150px;
 }
+
+
+/* 共通ヘッダ設定用 */
+
+li{
+	padding-top:10px;
+}
+
+li{
+	margin-left:5px;
+}
+
+.allbtn{
+    font-weight: 700;
+    border-radius:20px;
+}
+
+.logo{
+	max-height:100px;
+	max-width:300px;
+	position:relative;
+}
+
+.logo_span{
+	display:block;
+	position:absolute;
+	left:0px;
+	top:15px;
+	font-family: 'Londrina Shadow', cursive;
+	font-size:60px;
+}
+
+.logo_image{
+	position:absolute;
+	left:290px;
+	top:26px;
+}
+
+/* 共通ヘッダ設定用 */
 
 
 /* 管理者ログイン画面用 */
@@ -54,6 +93,38 @@ body{
 	text-align: center;
 }
 /* 管理者ログイン画面用 */
+
+
+/* 管理者ログイン後ヘッダ用 */
+
+.search_input{
+	height:30px;
+	width:215px;
+	padding:0 10px;
+	position:absolute;
+	left:25px;
+	top:0;
+	border-radius:5px;
+	background: white;
+}
+
+.submit_btn{
+	height:50px;
+	position:absolute;
+	left:210px;
+	top:4px;
+	background:none;
+	color:#666;
+	border:none;
+	height:24px;
+	width:24px;
+}
+
+.submit_btn:focus{
+	outline:0;
+}
+
+/* 管理者ログイン後ヘッダ用 */
 
 
 /* 管理者トップ画面用 */
@@ -82,6 +153,33 @@ body{
 	background-color:#CCCCCC;
 	text-align: center;
 }
+
+/* 管理者ジャンル一覧・追加画面用 */
+
+
+/* 管理者注文履歴一覧画面用 */
+
+.title_staffs_orders{
+	display:block;
+	margin-bottom:100px;
+	background-color:#CCCCCC;
+	text-align: center;
+}
+
+/* 管理者注文履歴一覧画面用 */
+
+
+/* 管理者履歴詳細画面用 */
+
+.title_staffs_orders_show{
+	display:block;
+	margin-bottom:50px;
+	background-color:#CCCCCC;
+	text-align: center;
+}
+
+/* 管理者履歴詳細画面用 */
+
 
 /* 会員ログイン画面 */
 .title_backcolor{
