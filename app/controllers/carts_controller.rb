@@ -16,15 +16,15 @@ class CartsController < ApplicationController
   end
 
   def update
-    @cart = Cart.find_by(customer_id: current_customer.id)
+    @cart = Cart.find(params[:id])
     @cart.update(cart_params)
     redirect_back(fallback_location: root_path)
   end
 
   def destroy
-    cart = Cart.find_by(customer_id: current_customer.id)
+    cart = Cart.find(params[:id])
     cart.destroy
-    redirect_back(fallback_location: root_path)
+    redirect_to carts_path
   end
 
   def destroy_all

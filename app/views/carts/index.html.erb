@@ -1,9 +1,10 @@
 <div class="container">
   <div class="row">
     <h3>ショッピングカート</h3>
-    
+
     <%= link_to 'カートを空にする', destroy_all_cart_path(current_customer), method: :delete, class: "btn btn-danger" %>
-    <table>
+
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th>商品名</th>
@@ -32,8 +33,11 @@
         <% end %>
       </tbody>
     </table>
-
     <%= link_to '買い物を続ける', products_path, class: "btn btn-primary" %>
     <%= @total %>
+  </div>
+
+  <div class="">
+    
   </div>
 </div>
