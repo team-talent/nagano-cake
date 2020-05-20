@@ -12,35 +12,38 @@
   <body>
 
     <header class="navbar navbar-fixed-top" style="background-color: gray;">
-      <div class="container">
-        <nav class="nav navbar-nav navber-left">
-             <div class="logo" style="">
-               <span style="color: white;">LOGO</span>
-             </div>
-        </nav>
-        <nav>
-        <ul class="nav navbar-nav navbar-right">
+      
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+          <nav class="nav navbar-nav navber-left">
+               <div class="logo" style="">
+                 <span style="color: white;">LOGO</span>
+               </div>
+          </nav>
+          <nav>
+              <ul class="nav navbar-nav navbar-right">
 
-            <% if customer_signed_in? %>
+                <% if customer_signed_in? %>
 
-             <%= render"layouts/customer_header" %>
+                  <%= render"layouts/customer_header" %>
 
-          <% elsif staff_signed_in? %>
-            
-            <%= render"layouts/staff_header" %>
+                <% elsif staff_signed_in? %>
+                  
+                  <%= render"layouts/staff_header" %>
 
-          <% else %>
+                <% else %>
 
-         
-          <li><%= link_to ' 商品一覧', customer_session_path, class:"btn btn-default btn-xs"  %></li>
-          <li><%= link_to ' 新規登録', new_customer_registration_path, class:"btn btn-default btn-xs"  %></li>
-          <li><%= link_to ' ログイン', new_customer_session_path, class:"btn btn-default btn-xs"  %></li>
-          </li>
-          <% end %>
-        </ul>
+                  <li><%= link_to ' 商品一覧', customer_session_path, class:"btn btn-default btn-xs"  %></li>
+                  <li><%= link_to ' 新規登録', new_customer_registration_path, class:"btn btn-default btn-xs"  %></li>
+                  <li><%= link_to ' ログイン', new_customer_session_path, class:"btn btn-default btn-xs"  %></li>
+                    </li>
+                  <% end %>
 
-      </nav>
-      </div>
+                </ul>
+            </nav>
+          </div>
+        </div>
+   
     </header>
 
     <%= yield %>

@@ -93,8 +93,20 @@ body{
 /* 会員ログイン画面 */
 
 /*会員新規登録画面 */
-.sinki_input{
-	width: 200px;
-    height: 30px;
-    margin-right:40px;
+form{
+  padding:30px 50px;
 }
+
+dl dt{
+  width: 165px;
+  padding:10px 0;
+  float:left;
+  clear:both;
+  margin-left: 300px;
+}
+
+dl dd{
+  padding:10px 0;
+  
+}
+
