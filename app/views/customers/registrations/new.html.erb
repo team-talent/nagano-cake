@@ -12,99 +12,46 @@
 <%= render "devise/shared/error_messages", resource: resource %>
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-11 col-xs-offset-1">
-      <div class="field">
-      <%= f.label :name, :名前, class: "sinki_input" %> 
-      (姓)<%= f.text_field :last_name, class: "sinki_input" %>
-      (名)<%= f.text_field :first_name, class: "sinki_input" %>
-      </div>
-    </div>
-  </div>
-</div>
-
-     <div class="container">
-      <div class="row">
-        <div class="col-xs-11 col-xs-offset-1">
-      <div class="field">
-        <%= f.label :name_kana, :フリガナ %> 
-        (セイ)<%= f.text_field :last_name_kana %>
-        (メイ)<%= f.text_field :first_name_kana %>
-      </div>
-    </div>
-  </div>
-</div>
-
-     <div class="container">
-      <div class="row">
-        <div class="col-xs-11 col-xs-offset-1">
-  <div class="field">
-    <%= f.label :email, :メールアドレス %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-      </div>
-  </div>
-</div>
-
-     <div class="container">
-      <div class="row">
-        <div class="col-xs-11 col-xs-offset-1">
-<div class="field">
-  <%= f.label :postal_code, :郵便番号 %>(ハイフンなし)
-  <%= f.text_field :postal_code %>
-</div>
-    </div>
-  </div>
-</div>
-
-     <div class="container">
-      <div class="row">
-        <div class="col-xs-11 col-xs-offset-1">
-<div class="field">
-  <%= f.label :address, :住所 %>
-  <%= f.text_field :address %>
-</div>
-    </div>
-  </div>
-</div>
+<dl>
+      <dt><%= f.label :name, :名前 %>　　　　　　　(姓)</dt>
+      <dd><%= f.text_field :last_name %>(名)　<%= f.text_field :first_name %></dd>
 
 
-     <div class="container">
-      <div class="row">
-        <div class="col-xs-11 col-xs-offset-1">
-<div class="field">
-  <%= f.label :tel, :電話番号 %>(ハイフンなし)
-  <%= f.text_field :tel %>
-</div>
-    </div>
-  </div>
-</div>
 
-     <div class="container">
-      <div class="row">
-        <div class="col-xs-11 col-xs-offset-1">
-  <div class="field">
-    <%= f.label :password, :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %>文字以上)</em>
-    <% end %>
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-    </div>
-  </div>
-</div>
+        <dt><%= f.label :name_kana, :フリガナ %>　　　　　(セイ)</dt>
+        <dd><%= f.text_field :last_name_kana %>(メイ)<%= f.text_field :first_name_kana %></dd>
 
-     <div class="container">
-      <div class="row">
-        <div class="col-xs-11 col-xs-offset-1">
-  <div class="field">
-    <%= f.label :password_confirmation, :パスワード %>(確認用)
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-    </div>
-  </div>
-</div>
+
+
+      <dt><%= f.label :email, :メールアドレス %></dt>
+      <dd><%= f.email_field :email, autofocus: true, autocomplete: "email" %></dd>
+
+
+
+        <dt><%= f.label :postal_code, :郵便番号 %>(ハイフンなし)</dt>
+        <dd><%= f.text_field :postal_code, size:"47" %></dd>
+
+
+
+        <dt><%= f.label :address, :住所 %></dt>
+        <dd><%= f.text_field :address %></dd>
+
+
+
+        <dt><%= f.label :tel, :電話番号 %>(ハイフンなし)</dt>
+         <dd><%= f.text_field :tel %></dd>
+
+
+
+        <dt><%= f.label :password, :パスワード %>(6文字以上)</dt>
+          <dd><%= f.password_field :password, autocomplete: "new-password" %></dd>
+
+
+
+        <dt><%= f.label :password_confirmation, :パスワード %>(確認用)</dt>
+          <dd><%= f.password_field :password_confirmation, autocomplete: "new-password" %></dd>
+        </dl>
+
 
 
   <div class="container">
