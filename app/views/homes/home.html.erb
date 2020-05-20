@@ -2,11 +2,13 @@
 	<div class="row">
 		<div class="col-xs-2" >
 
-			<%= render"genre_search" %>
+			<%= render 'products/list', genres:@genres %>
 
 		</div>
 
 		<div class="col-xs-10">
+
+			
 
 			<p>ようこそ、NaganoCakeへ！<br>
 				このサイトは、ケーキ販売のECサイトになります。<br>
@@ -14,22 +16,29 @@
 				購入には会員登録が必要になります。
 			</p>
 
+			
+
 
 
 			<h3>オススメ商品</h3>
 
 			<% @products.each do |product| %>
 
-			<tr>
-				<td><%= attachment_image_tag product, :image, fallback: "no_image.jpg", size:'40x40' %></td>
-				<td><%= product.name %></td>
-				<td><%= product.price %></td>
-			</tr>
+			<div class="col-xs-3">
+
+				<%= attachment_image_tag product, :image, fallback: "no_image.jpg", size:'100x80' %>
+				<p><%= product.name %></p>
+				<p><%= product.price %></p>
+
+			</div>
+
 
 			<% end %>
 
+		</div>
 
-			<%= link_to "もっと見る>", "", class:"col-xs-3 col-xs-offset-9" %>
+
+		<%= link_to "もっと見る>", products_path, class:"col-xs-3 col-xs-offset-9" %>
 
 	</div>
 </div>

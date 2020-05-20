@@ -14,43 +14,43 @@
 
 <dl>
       <dt><%= f.label :name, :名前 %>　　　　　　　(姓)</dt>
-      <dd><%= f.text_field :last_name %>(名)　<%= f.text_field :first_name %></dd>
+      <dd><%= f.text_field :last_name, size:"40" %>(名)　<%= f.text_field :first_name, size:"40" %></dd>
 
 
 
-        <dt><%= f.label :name_kana, :フリガナ %>　　　　　(セイ)</dt>
-        <dd><%= f.text_field :last_name_kana %>(メイ)<%= f.text_field :first_name_kana %></dd>
+      <dt><%= f.label :name_kana, :フリガナ %>　　　　　(セイ)</dt>
+      <dd><%= f.text_field :last_name_kana, size:"40" %>(メイ)<%= f.text_field :first_name_kana, size:"40" %></dd>
 
 
 
       <dt><%= f.label :email, :メールアドレス %></dt>
-      <dd><%= f.email_field :email, autofocus: true, autocomplete: "email" %></dd>
+      <dd><%= f.email_field :email, autofocus: true, autocomplete: "email", size:"40" %></dd>
 
 
 
-        <dt><%= f.label :postal_code, :郵便番号 %>(ハイフンなし)</dt>
-        <dd><%= f.text_field :postal_code, size:"47" %></dd>
+      <dt><%= f.label :postal_code, :郵便番号 %>(ハイフンなし)</dt>
+      <dd><%= f.text_field :postal_code, size:"40" %></dd>
 
 
 
-        <dt><%= f.label :address, :住所 %></dt>
-        <dd><%= f.text_field :address %></dd>
+      <dt><%= f.label :address, :住所 %></dt>
+      <dd><%= f.text_field :address, size:"87" %></dd>
 
 
 
-        <dt><%= f.label :tel, :電話番号 %>(ハイフンなし)</dt>
-         <dd><%= f.text_field :tel %></dd>
+      <dt><%= f.label :tel, :電話番号 %>(ハイフンなし)</dt>
+       <dd><%= f.text_field :tel, size:"40" %></dd>
 
 
 
-        <dt><%= f.label :password, :パスワード %>(6文字以上)</dt>
-          <dd><%= f.password_field :password, autocomplete: "new-password" %></dd>
+      <dt><%= f.label :password, :パスワード %>(6文字以上)</dt>
+      <dd><%= f.password_field :password, autocomplete: "new-password", size:"40" %></dd>
 
 
 
-        <dt><%= f.label :password_confirmation, :パスワード %>(確認用)</dt>
-          <dd><%= f.password_field :password_confirmation, autocomplete: "new-password" %></dd>
-        </dl>
+      <dt><%= f.label :password_confirmation, :パスワード %>(確認用)</dt>
+      <dd><%= f.password_field :password_confirmation, autocomplete: "new-password", size:"40" %></dd>
+  </dl>
 
 
 
