@@ -13,61 +13,72 @@
 			<div class="row" style="margin-left: 10px;">
 				<strong>登録情報</strong>
 				<span class="link", style="margin-left: 20px;">
-					<%= link_to '編集する', edit_update_customers_path(@customer), class: "btn-sm btn-primary", data: {"turbolinks" => false} %>
+					<%= link_to '編集する', edit_update_customers_path(@customer), class: "btn-sm btn-primary active", data: {"turbolinks" => false} %>
 				</span>
 				<span class="link", style="margin-left: 20px;">
-					<%= link_to 'パスワードを変更する', edit_customer_registration_path(@customer), class: "btn-sm btn-primary", data: {"turbolinks" => false} %>
+					<%= link_to 'パスワードを変更する', edit_customer_registration_path(@customer), class: "btn-sm btn-primary active", data: {"turbolinks" => false} %>
 				</span>
 			</div>
 			
 			<div class="row" style="margin-top: 30px;">
-				<div class="col-xs-12">
-					<table class="table">
-						<tbody>
-							<tr>
-								<th>氏名</th>
-								<td><%= @customer.last_name %>
-									<%= @customer.first_name %>
-								</td>
-							</tr>
-							<tr>
-								<th>カナ</th>
-								<td>
-									<%= @customer.last_name_kana %>
-									<%= @customer.first_name_kana %>
-								</td>
-							</tr>
-							<tr>
-								<th>郵便番号</th>
-								<td><%= @customer.postal_code %></td>
-							</tr>
-							<tr>
-								<th>住所</th>
-								<td><%= @customer.address %></td>
-							</tr>
-							<tr>
-								<th>電話番号</th>
-								<td><%= @customer.tel %></td>
-							</tr>
-							<tr>
-								<th>メールアドレス</th>
-								<td><%= @customer.email %></td>
-							</tr>
-						</tbody>
-					</table>
+				<div class="col-xs-8">
+					<div class="table-responsive">
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<th class="active col-xs-2">氏名</th>
+									<td class="col-xs-8">
+										<%= @customer.last_name %>
+										<%= @customer.first_name %>
+									</td>
+								</tr>
+								<tr>
+									<th class="active col-xs-2">カナ</th>
+									<td class="col-xs-8">
+										<%= @customer.last_name_kana %>
+										<%= @customer.first_name_kana %>
+									</td>
+								</tr>
+								<tr>
+									<th class="active col-xs-2">郵便番号</th>
+									<td class="col-xs-8">
+										<%= @customer.postal_code %>
+									</td>
+								</tr>
+								<tr>
+									<th class="active col-xs-2">住所</th>
+									<td class="col-xs-8">
+										<%= @customer.address %>
+									</td>
+								</tr>
+								<tr>
+									<th class="active col-xs-2">電話番号</th>
+									<td class="col-xs-8">
+										<%= @customer.tel %>
+									</td>
+								</tr>
+								<tr>
+									<th class="active col-xs-2">メールアドレス</th>
+									<td class="col-xs-8">
+										<%= @customer.email %>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 
 			<div class="row" style="margin-top: 20px; margin-left: 10px;">
 				<strong>配送先</strong>
 				<span class="link", style="margin-left: 45px;">
-					<%= link_to '一覧を見る', root_path, class: "btn-sm btn-primary", data: {"turbolinks" => false} %>
+					<%= link_to '一覧を見る', destinations_path, class: "btn-sm btn-primary active", data: {"turbolinks" => false} %>
 				</span>
 			</div>
 			<div class="row" style="margin-top: 20px; margin-left: 10px;">
 				<strong>注文履歴</strong>
 				<span class="link", style="margin-left: 30px;">
-					<%= link_to '一覧を見る', root_path, class: "btn-sm btn-primary", data: {"turbolinks" => false} %>
+					<%= link_to '一覧を見る', orders_path, class: "btn-sm btn-primary active", data: {"turbolinks" => false} %>
 				</span>
 			</div>
 		</div>
