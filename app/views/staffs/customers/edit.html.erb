@@ -3,10 +3,12 @@
 		<div class="col-xs-10 col-xs-1">
 
 			<div class="row">
-				<span class="pull-left" style="background-color: #C0C0C0; font-size: 1.5em; margin-bottom: 40px;">
-					<%= @customer.last_name %>
-					<%= @customer.first_name %>さんの会員情報編集
-				</span>
+				<div class="col-xs-8 col-xs-offset-2">
+					<span class="pull-left" style="background-color: #C0C0C0; font-size: 2.0em; margin-bottom: 40px;">
+						<%= @customer.last_name %>
+						<%= @customer.first_name %>さんの会員情報編集
+					</span>
+				</div>
 			</div>
 
 	 		<%= form_for(@customer,url:staffs_customer_path) do |f| %>
