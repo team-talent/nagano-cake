@@ -14,10 +14,12 @@ Rails.application.routes.draw do
 		end
 	end
 	resources :products, only:[:index, :show] do
-			get :genre_product_index, on: :member
-		end
+		get :genre_product_index, on: :member
+	end
 	resources :destinations, only:[:index, :edit, :create, :update, :destroy]
-	resources :orders, only:[:index, :show, :new, :create]
+	resources :orders, only:[:index, :show, :new, :create] do
+		get :confirm, on: :collection
+	end
 	resources :carts, only:[:index, :create, :update, :destroy] do
 		delete :destroy_all, on: :member
 	end
