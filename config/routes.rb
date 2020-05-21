@@ -6,9 +6,10 @@ Rails.application.routes.draw do
 
     devise_for :customers
 
-	resource :customers, only:[:show, :update] do
+	resource :customers, only:[:show] do
 		member do
 			get :edit_update
+			patch :customers_update
 			get :hide
 			patch :hide_update
 		end
