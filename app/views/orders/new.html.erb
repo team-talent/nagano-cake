@@ -1,1 +1,50 @@
 <h2>注文情報入力ページ</h2>
+
+<%= form_with url: orders_path do |f| %>
+<h2>支払方法</h2>
+  <div>
+    <%= f.radio_button :pay, :クレジットカード, name: "pay" %>
+    <%= f.label :クレジットカード %>
+  </div>
+  <div>
+    <%= f.radio_button :pay,  :銀行振込, name: "pay" %>
+    <%= f.label :銀行振込 %>
+  </div>
+<h2>お届け先</h2>
+  <div>
+    <%= f.radio_button :radio_button, 0, name: "address" %>
+    <%= f.label :ご自身の住所 %>
+    <%= current_customer.postal_code %>
+    <%= current_customer.address %>
+    <%= current_customer.first_name %>
+    <%= current_customer.last_name %>
+
+  </div>
+
+  <div>
+    <%= f.radio_button :radio_button, 1, name: "address" %>
+    <%= f.label :登録済住所から選択 %>
+    
+
+  </div>
+
+  <div>
+    <%= f.radio_button :radio_button, 2, name: "address" %>
+    <%= f.label :新しいお届け先 %>
+    <div>
+      <%= f.label :郵便番号（内紛なし） %>
+      <%= f.text_field :postcode_tosend %>
+    </div>
+    <div>
+      <%= f.label :住所 %>
+      <%= f.text_field :address_tosend %>
+    </div>
+    <div>
+      <%= f.label :宛名 %>
+      <%= f.text_field :name_tosend %>
+    </div>
+  </div>
+
+  <%= f.submit %>
+
+<% end %>
