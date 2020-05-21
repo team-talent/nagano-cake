@@ -2,9 +2,14 @@
 	<dix class="row">
 		<div class="col-xs-8 col-xs-offset-2">
 
-			<span class="pull-left" style="background-color: #C0C0C0; font-size: 1.5em; margin-bottom: 40px;">
-				<%= @customer.last_name %>
-				<%= @customer.first_name %>さんの会員詳細</span>
+			<div class="row">
+				<div class="col-xs-8 col-xs-offset-2">
+					<span class="pull-left" style="background-color: #C0C0C0; font-size: 2.0em; margin-bottom: 40px;">
+						<%= @customer.last_name %>
+						<%= @customer.first_name %>さんの会員詳細
+					</span>
+				</div>
+			</div>
 
 			<table class="table">
 				<tbody>
