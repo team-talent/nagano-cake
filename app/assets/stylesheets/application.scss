@@ -28,6 +28,106 @@ body{
 }
 
 
+/*ヘッダー部分 */
+
+.navbar-header{
+	height:90px;
+}
+
+.navbar-default{
+	border-color: pink;
+}
+
+.navbar-toggle{
+	position: relative;
+    float: right;
+    margin-right: 15px;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: white;
+    background-image: none;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: white;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: black;
+}
+
+.navbar-brand {
+  background: url("logo.png") no-repeat;
+  background-size: contain;
+  height: 50px;
+  width: 370px;
+  background-position: right 0% bottom 0%;
+  margin-top:20px;
+}
+
+.logo-tytle{
+	color:white;
+	font-family: 'Londrina Shadow', cursive;
+	font-size:60px;
+}
+
+.cusbtn{
+	background:white;
+    font-weight: 600;
+    border-radius:20px;
+    margin-top:5px;
+    margin-left:5px;
+}
+
+.allbtn{
+	background:white;
+    font-weight: 600;
+    border-radius:20px;
+    margin-top:20px;
+    margin-left:5px;
+}
+
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+    max-height: 500px;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: white;
+}
+
+.welcome_text{
+	padding-left:10px;
+	padding-top:5px;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #ffbbbb94;
+}
+
+.submit_btn{
+	position:absolute;
+	height:50px;
+	background:none;
+	color:#666;
+	border:none;
+	height:24px;
+	width:24px;
+	outline:0;
+	right:3%;
+	top:30%;
+}
+
+.menu{
+	margin-right:0px;
+	margin-left:-1px;
+}
+
+/*ヘッダー部分 */
+
+
 /* 管理者ログイン画面用 */
 
 .email_input{
@@ -132,101 +232,3 @@ dl dd{
   padding:10px 0;
 }
 /*会員新規登録画面 */
-
-
-
-
-.navbar-header{
-	height:90px;
-}
-
-.navbar-default{
-	border-color: pink;
-}
-
-.navbar-toggle{
-	position: relative;
-    float: right;
-    margin-right: 15px;
-    padding: 9px 10px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    background-color: white;
-    background-image: none;
-    border: 1px solid white;
-    border-radius: 4px;
-}
-
-.navbar-default .navbar-toggle {
-    border-color: white;
-}
-
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: black;
-}
-
-.navbar-brand {
-  background: url("logo.png") no-repeat;
-  background-size: contain;
-  height: 50px;
-  width: 370px;
-  background-position: right 0% bottom 0%;
-  margin-top:20px;
-}
-
-.logo-tytle{
-	color:white;
-	font-family: 'Londrina Shadow', cursive;
-	font-size:60px;
-}
-
-.cusbtn{
-	background:white;
-    font-weight: 600;
-    border-radius:20px;
-    margin-top:5px;
-    margin-left:5px;
-}
-
-.allbtn{
-	background:white;
-    font-weight: 600;
-    border-radius:20px;
-    margin-top:20px;
-    margin-left:5px;
-}
-
-.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
-    max-height: 500px;
-}
-
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background-color: white;
-}
-
-.welcome_text{
-	padding-left:10px;
-	padding-top:5px;
-}
-
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: #ffbbbb94;
-}
-
-.submit_btn{
-	position:absolute;
-	height:50px;
-	background:none;
-	color:#666;
-	border:none;
-	height:24px;
-	width:24px;
-	outline:0;
-	right:3%;
-	top:30%;
-}
-
-.menu{
-	margin-right:0px;
-	margin-left:-5px;
-}
