@@ -17,47 +17,43 @@
 		</div>
 		
 		<div class="col-xs-7">
-			<table class="table">
-				<tbody>
-					<tr>
-						<td>
-							<h4>商品名</h4>
-							<%= @product.name %>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>商品説明</h4>
-							<%= @product.explain %>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>ジャンル</h4>
-							<%= @category_name %>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>税込価格（税抜き価格)</h4>
-							<% addtax= @product.price * 1.1 %>
-							<%= addtax.round %>円(<%= @product.price %>円）
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>販売ステータス</h4>
-							<% if @product.sale_status == 1 %> 
-							<p>販売中</p>
-							<% else %>
-							<p>売切れ</p>
-							<% end %>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<div class="table-responsive">
+				<table class="table">
+					<tbody>
+						<tr>
+							<th style="border: none;">商品名</th>
+							<td style="border: none;"><%= @product.name %><td>
+						</tr>
+						<tr>
+							<th style="border: none;">商品説明</th>
+							<td style="border: none;"><%= @product.explain %></td>
+						</tr>
+						<tr>
+							<th style="border: none;">ジャンル</th>
+							<td style="border: none;"><%= @category_name %></td>
+						</tr>
+						<tr>
+							<th style="border: none;">税込価格（税抜き価格)</th>
+							<td style="border: none;">
+								<% addtax= @product.price * 1.1 %>
+								<%= addtax.round %>円(<%= @product.price %>円）
+							</td>
+						</tr>
+						<tr>
+							<th style="border: none;">販売ステータス</th>
+							<td style="border: none;">
+								<% if @product.sale_status == 1 %> 
+								<p>販売中</p>
+								<% else %>
+								<p>売切れ</p>
+								<% end %>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 			
-			<%= link_to '編集する', edit_staffs_product_path(@product), class: "btn-sm btn-success", data: {"turbolinks" => false} %>
+			<%= link_to '編集する', edit_staffs_product_path(@product), class: "btn btn-primary active pull-right", data: {"turbolinks" => false} %>
 		</div>
 	</dix>
 </div>

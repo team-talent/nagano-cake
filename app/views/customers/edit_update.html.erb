@@ -10,85 +10,67 @@
 				</div>
 			</div>
 
+			
 			<%= form_for(@customer,url:customers_update_customers_path) do |f| %>
+			<div class="container">
+				<div class="form-group">
+				    <div class="field row">
+				    	<%= f.label :name, "名前", class: "col-xs-2" %>
+				      		<div class="col-xs-1 text-right">(姓)</div>
+				      	<%= f.text_field :last_name, class: "col-xs-2" %>
+				      		<div class="col-xs-1 text-right">(名)</div>
+				      	<%= f.text_field :first_name, class: "col-xs-2" %>
+				    </div>
+			  	</div>
 
-			    <div class="row">
-			      	<div class="col-xs-3">
-			      		<h4>名前</h4>
-			        </div>
-			        <div class="col-xs-9">
-			        	<div class="row", style="margin-top: 5px;">		
-			     　　　　（姓）<%= f.text_field :last_name %>		
-			     　　　　（名）<%= f.text_field :first_name %>
-			 			</div>
-			     	</div>
-			    </div>
+				<div class="form-group">
+				    <div class="field row">
+				    	<%= f.label :name_kana, "フリガナ", class: "col-xs-2" %>
+				      		<div class="col-xs-1 text-right">(セイ)</div>
+				      	<%= f.text_field :last_name_kana, class: "col-xs-2" %>
+				      		<div class="col-xs-1 text-right">(メイ)</div>
+				      	<%= f.text_field :first_name_kana, class: "col-xs-2" %>
+				    </div>
+			  	</div>
 
-			    <div class="row">
-			      	<div class="col-xs-3">
-			      		<h4>フリガナ</h4>
-			        </div>
-			        <div class="col-xs-9">
-			        	<div class="row", style="margin-top: 5px;">		
-			     　　　　（セイ）<%= f.text_field :last_name_kana %>		
-			     　　　　（メイ）<%= f.text_field :first_name_kana %>
-			 			</div>
-			     	</div>
-			    </div>
+			  	<div class="form-group">
+				    <div class="field row">
+				    	<%= f.label :email, "メールアドレス", class: "col-xs-2" %>
+				    	<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-xs-2 col-xs-offset-1" %>
+				    </div>
+				</div>
 
-			    <div class="row">
-			      	<div class="col-xs-3">
-			      		<h4>メールアドレス</h4>
-			        </div>
-			        <div class="col-xs-9">
-			        	<div class="row", style="margin-top: 5px;">		
-			     　　　　<%= f.text_field :email, autofocus: true, autocomplete: "email" %>
-			 			</div>
-			     	</div>
-			    </div>
+				<div class="form-group">
+				    <div class="field row">
+				    	<%= f.label :postal_code, "郵便番号(ハイフンなし)", class: "col-xs-2" %>
+				    	<%= f.text_field :postal_code, class: "col-xs-2 col-xs-offset-1" %>
+				    </div>
+			  	</div>
 
-			    <div class="row">
-			      	<div class="col-xs-3">
-			      		<h4>郵便番号（ハイフンなし）</h4>
-			        </div>
-			        <div class="col-xs-9">
-			        	<div class="row", style="margin-top: 5px;">		
-			     　　　　<%= f.text_field :postal_code, size:"47" %>
-			 			</div>
-			     	</div>
-			    </div>
+			  	<div class="form-group">
+				    <div class="field row">
+				    	<%= f.label :address, "住所", class: "col-xs-2" %>
+				    	<%= f.text_field :address, class: "col-xs-5 col-xs-offset-1" %>
+				    </div>
+				</div>
 
-			    <div class="row">
-			      	<div class="col-xs-3">
-			      		<h4>住所</h4>
-			        </div>
-			        <div class="col-xs-9">
-			        	<div class="row", style="margin-top: 5px;">		
-			     　　　　<%= f.text_field :address %>
-			 			</div>
-			     	</div>
-			    </div>
-			        
-	        	<div class="row">
-			      	<div class="col-xs-3">
-			      		<h4>電話番号（ハイフンなし）</h4>
-			        </div>
-			        <div class="col-xs-9">
-			        	<div class="row", style="margin-top: 5px;">		
-			     　　　　<%= f.text_field :tel %>
-			 			</div>
-			     	</div>
-			    </div>
+				<div class="form-group">
+				    <div class="field row">
+					    <%= f.label :tel, "電話番号(ハイフンなし)", class: "col-xs-2" %>
+					    <%= f.text_field :tel, class: "col-xs-2 col-xs-offset-1" %>
+				    </div>
+				</div>
 
-			    <div class="row", style="margin-top: 20px; margin-left: 30px;">
-			    	<span class="submit">
-		        	<%= f.submit '編集内容を保存する', class: "btn-sm btn-primary"%>
-		        	</span>
-		        	<span class="hide">
-		        	<%= link_to '退会', hide_customers_path, class: "btn-sm btn-danger"%>
-		        	</span>
+			    <div class="row", style="margin-top: 50px;">
+			    	<div class="col-xs-6 col-xs-offset-3" style="display: flex; justify-content: space-between;">
+		        		<%= f.submit '編集内容を保存する', class: "btn btn-primary active"%>
+			        	<div class="h" style="display: inline-block; margin-left: 40px;">
+			        	<%= link_to '退会する', hide_customers_path, class: "btn btn-danger active"%>
+			        	</div>
+		        	</div>
 		    	</div>
-		    <% end %>
+	    	</div>
+		    <% end %>			
 	    </div>
 	</dix>
 </div>
