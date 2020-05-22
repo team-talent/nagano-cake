@@ -11,46 +11,41 @@
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-fixed-top navbar-default" style="background-color:pink; ">
+        <div class="container-fluid">
 
-    <header class="navbar navbar-fixed-top" style="background-color: pink ;">
-      
-      <div class="row">
-        <div class="col-xs-10 col-xs-offset-1">
-          <nav class="nav navbar-nav navber-left">
-               <div class="logo">
-                  <span class="logo_span text-right" style="color:white;">naganoCAKE</span>
-                  <div class="logo_image">
-                    <%= image_tag('logo.png', class: "logo-img", style: "width: 60px; height: 60px;") %>
-                  </div>
-               </div>
-          </nav>
-          <nav>
+            <div class="navbar-header">
+              <%= link_to root_path, class: "navbar-brand" do %>
+                <p class="logo-tytle">naganoCAKE</p>
+              <% end %>
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
+                <span class="sr-only">メニュー</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
 
-                <ul class="nav navbar-nav navbar-right">
-
+            <div id="gnavi" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right menu">
                 <% if customer_signed_in? %>
-
-                  <%= render"layouts/customer_header" %>
-
+                      <%= render"layouts/customer_header" %>
                 <% elsif staff_signed_in? %>
-                  
-                  <%= render"layouts/staff_header" %>
-
+                      <%= render"layouts/staff_header" %>
                 <% else %>
+                <li><%= link_to ' 商品一覧', customer_session_path, class:"btn btn-default btn-sm allbtn"  %></li>
+                <li><%= link_to ' 新規登録', new_customer_registration_path, class:"btn btn-default btn-sm allbtn"  %></li>
+                <li><%= link_to ' ログイン', new_customer_session_path, class:"btn btn-default btn-sm allbtn"  %></li>
+                <% end %>
+              </ul>
+            </div>
 
-                  <li><%= link_to ' 商品一覧', customer_session_path, class:"btn btn-default btn-sm allbtn"  %></li>
-                  <li><%= link_to ' 新規登録', new_customer_registration_path, class:"btn btn-default btn-sm allbtn"  %></li>
-                  <li><%= link_to ' ログイン', new_customer_session_path, class:"btn btn-default btn-sm allbtn"  %></li>
-                    </li>
-                  <% end %>
-
-                </ul>
-            </nav>
-          </div>
         </div>
-   
+      </nav>
     </header>
 
     <%= yield %>
+
   </body>
 </html>

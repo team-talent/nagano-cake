@@ -23,52 +23,108 @@
 	box-sizing:border-box;
 }
 
-header {
-    height:115px;
-}
-
 body{
 	margin-top:150px;
 }
 
 
-/* 共通ヘッダ設定用 */
+/*ヘッダー部分 */
 
-li{
-	padding-top:10px;
+.navbar-header{
+	height:90px;
 }
 
-li{
-	margin-left:5px;
+.navbar-default{
+	border-color: pink;
 }
 
-.allbtn{
-    font-weight: 700;
-    border-radius:20px;
+.navbar-toggle{
+	position: relative;
+    float: right;
+    margin-right: 15px;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: white;
+    background-image: none;
+    border: 1px solid white;
+    border-radius: 4px;
 }
 
-.logo{
-	max-height:100px;
-	max-width:300px;
-	position:relative;
+.navbar-default .navbar-toggle {
+    border-color: white;
 }
 
-.logo_span{
-	display:block;
-	position:absolute;
-	left:0px;
-	top:15px;
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: black;
+}
+
+.navbar-brand {
+  background: url("logo.png") no-repeat;
+  background-size: contain;
+  height: 50px;
+  width: 370px;
+  background-position: right 0% bottom 0%;
+  margin-top:20px;
+}
+
+.logo-tytle{
+	color:white;
 	font-family: 'Londrina Shadow', cursive;
 	font-size:60px;
 }
 
-.logo_image{
-	position:absolute;
-	left:290px;
-	top:26px;
+.cusbtn{
+	background:white;
+    font-weight: 600;
+    border-radius:20px;
+    margin-top:5px;
+    margin-left:5px;
 }
 
-/* 共通ヘッダ設定用 */
+.allbtn{
+	background:white;
+    font-weight: 600;
+    border-radius:20px;
+    margin-top:20px;
+    margin-left:5px;
+}
+
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+    max-height: 500px;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: white;
+}
+
+.welcome_text{
+	padding-left:10px;
+	padding-top:5px;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #ffbbbb94;
+}
+
+.submit_btn{
+	position:absolute;
+	background:none;
+	color:#666;
+	border:none;
+	height:24px;
+	width:24px;
+	outline:0;
+	right:3%;
+	top:30%;
+}
+
+.menu{
+	margin-right:0px;
+	margin-left:-1px;
+}
+
+/*ヘッダー部分 */
 
 
 /* 管理者ログイン画面用 */
@@ -93,38 +149,6 @@ li{
 	text-align: center;
 }
 /* 管理者ログイン画面用 */
-
-
-/* 管理者ログイン後ヘッダ用 */
-
-.search_input{
-	height:30px;
-	width:215px;
-	padding:0 10px;
-	position:absolute;
-	left:25px;
-	top:0;
-	border-radius:5px;
-	background: white;
-}
-
-.submit_btn{
-	height:50px;
-	position:absolute;
-	left:210px;
-	top:4px;
-	background:none;
-	color:#666;
-	border:none;
-	height:24px;
-	width:24px;
-}
-
-.submit_btn:focus{
-	outline:0;
-}
-
-/* 管理者ログイン後ヘッダ用 */
 
 
 /* 管理者トップ画面用 */
@@ -207,5 +231,3 @@ dl dd{
   padding:10px 0;
 }
 /*会員新規登録画面 */
-
-/*会員ヘッダー */
