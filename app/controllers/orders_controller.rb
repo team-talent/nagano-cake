@@ -6,18 +6,33 @@ class OrdersController < ApplicationController
   end
 
   def new
+    session[:order] = nil
     @order = Order.new
+    @orders = Order.all
   end
 
   def create
-    if params[:radio_button].to_i == 0
+
+  end
+
+  def confirm
+    @cart = Cart.where(customer_id: current_customer)
+    array = []
+      @cart.each do |cart|
+      array << cart.product.price * cart.vol
+    end
+    @total = array.sum
+
+    if params[:address].to_i == 2
+      session[:order] = Order.new()
+      session[:order][:pay] = params[:pay]
       session[:order][:postcode_tosend] = current_customer.postal_code
       session[:order][:address_tosend]  = current_customer.address
       session[:order][:name_tosend]     = current_customer.first_name + current_customer.last_name
-    elsif params[:radio_button].to_i == 1
-      @order = Order.new(order_params)
+    elsif params[:address].to_i == 3
+
     else
-      @order = Order.new(order_params)
+      session[:order] = order_params
     end
   end
 
