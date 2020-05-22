@@ -133,6 +133,9 @@ dl dd{
 }
 /*会員新規登録画面 */
 
+
+
+
 .navbar-header{
 	height:90px;
 }
@@ -177,6 +180,14 @@ dl dd{
 	font-size:60px;
 }
 
+.cusbtn{
+	background:white;
+    font-weight: 600;
+    border-radius:20px;
+    margin-top:5px;
+    margin-left:5px;
+}
+
 .allbtn{
 	background:white;
     font-weight: 600;
@@ -185,27 +196,37 @@ dl dd{
     margin-left:5px;
 }
 
-.search_form {
-    padding: 10px 50px;
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+    max-height: 500px;
 }
 
-.search_input{
-	height:30px;
-	width:175px;
-	border-radius:5px;
-	background: white;
-	outline:1;
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: white;
+}
+
+.welcome_text{
+	padding-left:10px;
+	padding-top:5px;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #ffbbbb94;
 }
 
 .submit_btn{
-	height:50px;
 	position:absolute;
-	left:215px;
-	top:13px;
+	height:50px;
 	background:none;
 	color:#666;
 	border:none;
 	height:24px;
 	width:24px;
 	outline:0;
+	right:3%;
+	top:30%;
+}
+
+.menu{
+	margin-right:0px;
+	margin-left:-5px;
 }
