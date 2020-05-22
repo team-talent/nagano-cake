@@ -23,52 +23,9 @@
 	box-sizing:border-box;
 }
 
-header {
-    height:115px;
-}
-
 body{
 	margin-top:150px;
 }
-
-
-/* 共通ヘッダ設定用 */
-
-li{
-	padding-top:10px;
-}
-
-li{
-	margin-left:5px;
-}
-
-.allbtn{
-    font-weight: 700;
-    border-radius:20px;
-}
-
-.logo{
-	max-height:100px;
-	max-width:300px;
-	position:relative;
-}
-
-.logo_span{
-	display:block;
-	position:absolute;
-	left:0px;
-	top:15px;
-	font-family: 'Londrina Shadow', cursive;
-	font-size:60px;
-}
-
-.logo_image{
-	position:absolute;
-	left:290px;
-	top:26px;
-}
-
-/* 共通ヘッダ設定用 */
 
 
 /* 管理者ログイン画面用 */
@@ -93,38 +50,6 @@ li{
 	text-align: center;
 }
 /* 管理者ログイン画面用 */
-
-
-/* 管理者ログイン後ヘッダ用 */
-
-.search_input{
-	height:30px;
-	width:215px;
-	padding:0 10px;
-	position:absolute;
-	left:25px;
-	top:0;
-	border-radius:5px;
-	background: white;
-}
-
-.submit_btn{
-	height:50px;
-	position:absolute;
-	left:210px;
-	top:4px;
-	background:none;
-	color:#666;
-	border:none;
-	height:24px;
-	width:24px;
-}
-
-.submit_btn:focus{
-	outline:0;
-}
-
-/* 管理者ログイン後ヘッダ用 */
 
 
 /* 管理者トップ画面用 */
@@ -208,4 +133,79 @@ dl dd{
 }
 /*会員新規登録画面 */
 
-/*会員ヘッダー */
+.navbar-header{
+	height:90px;
+}
+
+.navbar-default{
+	border-color: pink;
+}
+
+.navbar-toggle{
+	position: relative;
+    float: right;
+    margin-right: 15px;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: white;
+    background-image: none;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: white;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: black;
+}
+
+.navbar-brand {
+  background: url("logo.png") no-repeat;
+  background-size: contain;
+  height: 50px;
+  width: 370px;
+  background-position: right 0% bottom 0%;
+  margin-top:20px;
+}
+
+.logo-tytle{
+	color:white;
+	font-family: 'Londrina Shadow', cursive;
+	font-size:60px;
+}
+
+.allbtn{
+	background:white;
+    font-weight: 600;
+    border-radius:20px;
+    margin-top:20px;
+    margin-left:5px;
+}
+
+.search_form {
+    padding: 10px 50px;
+}
+
+.search_input{
+	height:30px;
+	width:175px;
+	border-radius:5px;
+	background: white;
+	outline:1;
+}
+
+.submit_btn{
+	height:50px;
+	position:absolute;
+	left:215px;
+	top:13px;
+	background:none;
+	color:#666;
+	border:none;
+	height:24px;
+	width:24px;
+	outline:0;
+}
