@@ -5,6 +5,7 @@ class HomesController < ApplicationController
 	end
 
 	def thanks
+
 	end
 
 	def about

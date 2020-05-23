@@ -33,11 +33,11 @@
           </tr>
           <tr>
             <th>商品合計</th>
-            <th><%= @total %>円</th>
+            <th><%= session[:order]["total_price"] %>円</th>
           </tr>
           <tr>
             <th>請求合計</th>
-            <th><%= @total + 800 %>円</th>
+            <th><%= session[:order]["total_price"] + 800 %>円</th>
           </tr>
         </thead>
       </table>
@@ -57,6 +57,7 @@
     <%= session[:order]["address_tosend"] %>
     <%= session[:order]["name_tosend"] %>
   </div>
+<%= link_to "確定", orders_path, method: :post, class: "btn btn-danger" %>
 
   <%= link_to "入力画面に戻る", new_order_path, class: "btn btn-danger" %>
 </div>
