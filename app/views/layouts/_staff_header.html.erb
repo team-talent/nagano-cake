@@ -6,16 +6,17 @@
 <li><%= link_to ' ログアウト', destroy_staff_session_path, method: :delete, class:"btn btn-default btn-sm allbtn" %></li>
 
 
-<div class = "row" style="margin-top: 80px;" >
-	<div class="col-xs-8 col-xs-offset-6">
-		<%= form_tag("#", :method => 'get') do %>
-	
-	    		<%= text_field_tag :search, "", placeholder: "Search", class: "search_input" %>
-	    		<%= button_tag '', :type => "submit", class: "submit_btn" do %>
-	  				<i class="glyphicon glyphicon-search"></i>
-				<% end %>
+<div class = "row" style="margin-top: 20px;" >
+	<div class="col-xs-12  search">
+		<%= form_tag("#", :method => 'get', class: "navbar-form  navbar-right") do %>
+			<div class="form-group">
+	    		<%= text_field_tag :search, "", placeholder: "Search", class: "form-control" %>
+	    	</div>
+
+	    	<%= button_tag '', :type => "submit", class: "submit_btn" do %>
+	  			<span class="glyphicon glyphicon-search"></span>
+			<% end %>
 		<% end %>
 	</div>
 </div>
-
 

@@ -16,9 +16,9 @@
 				<% end %>
 		    </p>
 
-			<table class="table">
+			<table class="table ">
 				<thead>
-					<tr>
+					<tr class="active">
 						<th>商品ID</th>
 						<th>商品名</th>
 						<th>税抜価格</th>
@@ -30,7 +30,9 @@
 					<% @products.each do |product| %>
 					<tr>
 						<td><%= product.id %></td>
-						<td><%= link_to product.name, staffs_product_path(product.id), class: "product_#{product.id}" %></td>
+						<td>
+							<u><%= link_to product.name, staffs_product_path(product.id), class: "product_#{product.id}" %></u>
+						</td>
 						<td><%= product.price %></td>
 						<td><%= product.genre.category_name %></td>
 						<td>
