@@ -16,23 +16,26 @@ class OrdersController < ApplicationController
     order = current_customer.orders.new(session[:order])
     order.send_fee = 800
     if order.save
-      destination = current_customer.destinations.new(
+        destination = current_customer.destinations.new(
         postcode_tosend: session[:order]["postcode_tosend"],
         address_tosend:  session[:order]["address_tosend"],
         name_tosend:     session[:order]["name_tosend"]
         )
       destination.save
       
-      detail = Detail.new
-      detail.order_id = order.id
       @cart = Cart.where(customer_id: current_customer)
       @cart.each do |cart|
-        detail.product_vol = cart.vol
-        detail.product_price = cart.product.price
+        Detail.create(
+        order_id: order.id,
+        product_vol: cart.vol,
+        product_price: cart.product.price,
+        production_status:0,
+        product_id: cart.product.id
+        )
       end
-      detail.save
     else
     end
+    session[:order] = nil
     redirect_to homes_thanks_path
   end
 
