@@ -11,21 +11,33 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-10">
-    	<table class="table">
-    		<thread>
-    			<tr>
-    				<th>購入日時</th>
-    				<th>購入者</th>
-    				<th>注文個数</th>
-    				<th>注文ステータス</th>
-    			</tr>
-    		</thread>
-    		<tbody>
-    			<tr>
-    				<td><%= link_to "2019/11/20 23:55:12", "#" %></td>
-    				<td>石倉基之</td>
-    				<td>1</td>
-    				<td>入金待ち</td>
-    			</tr>
-    		</tbody>
-    	</table>
+        <table class="table">
+            <thread>
+                <tr>
+                    <th>購入日時</th>
+                    <th>購入者</th>
+                    <th>注文個数</th>
+                    <th>注文ステータス</th>
+                </tr>
+            </thread>
+            <tbody>
+                <% @orders.each do |orders| %>
+                <tr>
+                    <td><%= link_to orders.created_at.in_time_zone('Japan').strftime("%Y/%m/%d %H:%M:%S"), staffs_order_path(orders) %></td>
+
+                    <td><%= orders.customer.last_name + orders.customer.first_name%></td>
+
+                    <% @total_product_vol = 0 %>
+                    <% orders.details.each do |detail| %>
+                        <% @total_product_vol += detail.product_vol %>
+                    <% end %>
+                    <td><%= @total_product_vol %></td>
+
+                    <td><%= orders.order_status %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+  </div>
+</div>

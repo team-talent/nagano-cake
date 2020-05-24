@@ -34,7 +34,16 @@ Rails.application.routes.draw do
 		resources :customers, only:[:index, :show, :edit, :update]
 		resources :products, only:[:index, :show, :new, :edit, :create, :update]
 		resources :genres, only:[:index, :edit, :create, :update]
-		resources :orders, only:[:index, :show]
+		resources :orders, only:[:index, :show]do
+			member do
+				patch :update_for_orderstatus
+			end
+		end
+		resources :details, only:[]do
+			member do
+				patch :update_for_productionstatus
+			end
+		end
 	end
 
 end
