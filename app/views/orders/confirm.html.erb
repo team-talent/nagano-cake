@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <h2>注文情報確認画面</h2>
+    <div class="col-xs-7">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価（税込）</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <% @cart.each do |cart| %>
+        <tbody>
+          <tr>
+            <td><%= cart.product.name %></td>
+            <td><%= cart.product.price %></td>
+            <td><%= cart.vol %></td>
+            <td><%= cart.product.price * cart.vol %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+
+    <div class="col-xs-3 col-xs-offset-1">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>送料</th>
+            <th>800円</th>
+          </tr>
+          <tr>
+            <th>商品合計</th>
+            <th><%= session[:order]["total_price"] %>円</th>
+          </tr>
+          <tr>
+            <th>請求合計</th>
+            <th><%= session[:order]["total_price"] + 800 %>円</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <h3>支払方法</h3>
+    <% if session[:order]["pay"].to_i == 0 %>
+      <p>クレジットカード</p>
+    <% else %>
+      <p>銀行振込</p>
+    <% end %>
+  </div>
+  <div class="row">
+    <h3>お届け先</h3>
+    <%= session[:order]["postcode_tosend"] %>
+    <%= session[:order]["address_tosend"] %>
+    <%= session[:order]["name_tosend"] %>
+  </div>
+<%= link_to "確定", orders_path, method: :post, class: "btn btn-danger" %>
+
+  <%= link_to "入力画面に戻る", new_order_path, class: "btn btn-danger" %>
+</div>

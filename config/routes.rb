@@ -19,7 +19,9 @@ Rails.application.routes.draw do
 	end
 	resources :destinations, only:[:index, :edit, :create, :update, :destroy]
 	resources :orders, only:[:index, :show, :new, :create] do
-		get :confirm, on: :collection
+   	collection do
+			post :confirm, to: "orders/confirm"
+		end
 	end
 	resources :carts, only:[:index, :create, :update, :destroy] do
 		delete :destroy_all, on: :member

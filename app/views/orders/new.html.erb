@@ -1,18 +1,18 @@
 <h2>注文情報入力ページ</h2>
 
-<%= form_with url: orders_path do |f| %>
+<%= form_with(model: @order, url: confirm_orders_path, data: {remote: false}) do |f| %>
 <h2>支払方法</h2>
   <div>
-    <%= f.radio_button :pay, :クレジットカード, name: "pay" %>
+    <%= f.radio_button :pay, 0, name: "pay" %>
     <%= f.label :クレジットカード %>
   </div>
   <div>
-    <%= f.radio_button :pay,  :銀行振込, name: "pay" %>
+    <%= f.radio_button :pay, 1, name: "pay" %>
     <%= f.label :銀行振込 %>
   </div>
 <h2>お届け先</h2>
   <div>
-    <%= f.radio_button :radio_button, 0, name: "address" %>
+    <%= f.radio_button :radio_button, 2, name: "address" %>
     <%= f.label :ご自身の住所 %>
     <%= current_customer.postal_code %>
     <%= current_customer.address %>
@@ -22,17 +22,17 @@
   </div>
 
   <div>
-    <%= f.radio_button :radio_button, 1, name: "address" %>
+    <%= f.radio_button :radio_button, 3, name: "address" %>
     <%= f.label :登録済住所から選択 %>
-    
+
 
   </div>
 
   <div>
-    <%= f.radio_button :radio_button, 2, name: "address" %>
+    <%= f.radio_button :radio_button, 4, name: "address" %>
     <%= f.label :新しいお届け先 %>
     <div>
-      <%= f.label :郵便番号（内紛なし） %>
+      <%= f.label :郵便番号（ハイフンなし） %>
       <%= f.text_field :postcode_tosend %>
     </div>
     <div>
