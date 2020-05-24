@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
       session[:order][:pay] = params[:pay]
       session[:order][:postcode_tosend] = current_customer.postal_code
       session[:order][:address_tosend]  = current_customer.address
-      session[:order][:name_tosend]     = current_customer.first_name + current_customer.last_name
+      session[:order][:name_tosend]     = current_customer.last_name + current_customer.first_name
     elsif params[:address].to_i == 3
 
     elsif params[:address].to_i == 4
