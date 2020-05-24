@@ -1,18 +1,20 @@
 <div class="container">
 	<dix class="row">
-		<div class="col-xs-9 col-xs-offset-1">
+		<div class="col-xs-4 col-xs-offset-1">
+			<span style="display: block; margin-bottom: 30px; background-color: #cccccc; text-align: center;">
+				<h3>会員一覧</h3>
+			</span>
+		</div>
+	</dix>
+</div>
 
-			<div class="row">
-				<div class="col-xs-8 col-xs-offset-2">
-					<span class="pull-left" style="background-color: #C0C0C0; font-size: 2.0em; margin-bottom: 40px;">
-						会員一覧
-					</span>
-				</div>
-			</div>
+<div class="container">
+	<dix class="row">
+		<div class="col-xs-8 col-xs-offset-1">
 
 			<table class="table">
 				<thead>
-					<tr>
+					<tr class="active">
 						<th>会員ID</th>
 						<th>氏名</th>
 						<th>メールアドレス</th>
@@ -24,7 +26,8 @@
 					<tr>
 						<td><%= customer.id %></td>
 						<% name= customer.last_name + customer.first_name %>
-						<td><%= link_to name, staffs_customer_path(customer.id), class: "customer_#{customer.id}" %>
+						<td>
+							<u><%= link_to name, staffs_customer_path(customer.id), class: "customer_#{customer.id}" %></u>
 						</td>
 						<td><%= customer.email %></td>
 
