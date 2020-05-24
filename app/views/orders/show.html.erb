@@ -1,1 +1,83 @@
-<h2>注文情報詳細ページ</h2>
+<div class="container">
+  <div class="row">
+    <span class="pull-left" style="background-color: #d3d3d3; font-size: 2.0em; margin-bottom: 10px;">注文履歴詳細
+    </span>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <p>注文情報</p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="background-color: #d3d3d3;">注文日</th>
+            <th><%= @order.created_at %></th>
+          </tr>
+          <tr>
+            <th style="background-color: #d3d3d3;">配送先</th>
+            <th>
+              <%= @order.postcode_tosend %><br>
+              <%= @order.address_tosend %> <br>
+              <%= @order.name_tosend %>
+            </th>
+          </tr>
+          <tr>
+            <th style="background-color: #d3d3d3;">支払方法</th>
+            <th><%= @order.pay %></th>
+          </tr>
+          <tr>
+            <th style="background-color: #d3d3d3;">ステータス</th>
+            <th><%= @order.order_status %></th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <div class="col-xs-3 ">
+      <p>請求情報</p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="background-color: #d3d3d3;">商品合計</th>
+            <th><%= @order.total_price %>円</th>
+          </tr>
+          <tr>
+            <th style="background-color: #d3d3d3;">送料</th>
+            <th><%= @order.send_fee %>円</th>
+          </tr>
+          <tr>
+            <th style="background-color: #d3d3d3;">請求合計</th>
+            <th><%= @order.total_price + (@order.send_fee).to_i %>円</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-7">
+      <p>注文内容</p>
+      <table class="table table-bordered">
+        <thead>
+          <tr style="background-color: #d3d3d3;">
+            <th>商品</th>
+            <th>単価（税込）</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.details.each do |detail| %>
+            <tr>
+              <td><%= detail.product.name %></td>
+              <td><%= detail.product_price %></td>
+              <td><%= detail.product_vol %></td>
+              <td>
+                <%= detail.product_price * detail.product_vol %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

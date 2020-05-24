@@ -1,14 +1,15 @@
 class OrdersController < ApplicationController
-  require 'byebug'
   def index
     @orders = Order.all
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   def new
     session[:order] = nil
+    @destination = Destination.where(customer_id: current_customer)
     @order = Order.new
     @orders = Order.all
   end
@@ -23,7 +24,7 @@ class OrdersController < ApplicationController
         name_tosend:     session[:order]["name_tosend"]
         )
       destination.save
-      
+
       @cart = Cart.where(customer_id: current_customer)
       @cart.each do |cart|
         Detail.create(
@@ -50,7 +51,11 @@ class OrdersController < ApplicationController
       session[:order][:name_tosend]     = current_customer.last_name + current_customer.first_name
       session[:order][:order_status] = 0
     elsif params[:address].to_i == 3
-
+      session[:order][:pay] = params[:pay]
+      session[:order][:postcode_tosend] = params[:destination_id].postcode_tosend
+      session[:order][:address_tosend]  = params[:destination_id].address_tosend
+      session[:order][:name_tosend]     = params[:destination_id].name_tosend
+      session[:order][:order_status] = 0
     elsif params[:address].to_i == 4
       session[:order] = order_params
       session[:order][:pay] = params[:pay]

@@ -5,15 +5,18 @@
     </div>
 
     <div class="col-xs-9">
-      <h2>商品一覧</h2>
-      <span>（全x件）</span>
+      <div class="row">
+        <span class="pull-left" style="font-size: 2.0em; margin-bottom: 10px;"><%= @genre.category_name %>一覧
+        </span>
+        <span>（全<%= @products.count %>件）</span>
+      </div>
       <div class="row">
 
         <% @products.each do |product| %>
           <div class="col-xs-3">
           <div class="row">
             <%= link_to product_path(product.id) do %>
-              <%= attachment_image_tag product, :image, fallback: "no_image.jpg", size: "200x100" %>
+              <%= attachment_image_tag product, :image, fallback: "no_image.jpg", width: "auto", height: "100" %>
             <% end %>
           </div>
           <div class="row"><%= product.name %></div>
