@@ -1,2 +1,35 @@
 <div class="container">
 	<div class="row">
+		<div class="col-xs-12">
+			<h2>所在地</h2>
+			<div id='map'></div>
+
+			<style>
+			#map{
+			  height: 400px;
+			}
+			</style>
+
+			<script>
+			function initMap(){
+			  let map = new google.maps.Map(document.getElementById('map'), {
+			  center: {lat: 35.664678, lng: 139.73782},
+			  zoom: 18
+			  });
+			  var marker = new google.maps.Marker( {
+				map: map ,
+				position: new google.maps.LatLng( 35.664678, 139.73782 ) ,
+			});
+			}
+			</script>
+			<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_API_KEY']%>&callback=initMap" async defer></script>
+			<br>
+			<div class="row">
+				<p>東京都港区六本木三丁目2番1号<br>
+				   住友不動産六本木グランドタワーDMMグループ総合受付24階<br>
+				</p>
+				<div class="">
+			</div>
+		</div>
+	</div>
+</div>

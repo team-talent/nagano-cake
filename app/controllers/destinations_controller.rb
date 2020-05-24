@@ -1,7 +1,7 @@
 class DestinationsController < ApplicationController
 	def index
 		@destination = Destination.new
-		@destinations = Destination.all
+		@destinations = current_customer.destinations.all
 	end
 
 	def edit
