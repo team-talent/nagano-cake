@@ -1,7 +1,7 @@
 <div class="container">
 	<dix class="row">
 		<div class="col-xs-6 col-xs-offset-1">
-			<span style="display: block; margin-bottom: 30px; background-color: #cccccc; text-align: center;">
+			<span style="display: block; margin-bottom: 10px; background-color: #cccccc; text-align: center;">
 				<h3><%= @customer.last_name %>
 					<%= @customer.first_name %>さんの会員詳細
 				</h3>
@@ -17,77 +17,80 @@
 			<table class="table">
 				<tbody>
 					<tr>
-						<td>
+						<th style="border: none;">
 							<h4>顧客ID</h4>
-							
-							<th>
-								<%= @customer.id %>
-							</th>
-							<th>
-								<% if @customer.customer_status == false %>
-								  <span style="display: block; border: solid 3px #00000; ">有効会員</span>
-								<% else %>
-								   <span>退会済</span>
-								<% end %>
-							</th>
-
+						</th>
+						<td style="border: none;">
+							<%= @customer.id %>
+						</td>
+						<td style="border: none;">
+							<% if @customer.customer_status == false %>
+							  <div style="border: 1px solid #000000; text-align: center; border-radius: 50px; background-color: #1E90FF" >有効会員</div>
+							<% else %>
+							   <div style="border: 1px solid #000000; text-align: center; border-radius: 50px; background-color: #FF4F50" >退会済</div>
+							<% end %>
 						</td>
 					</tr>
 					<tr>
-						<th>
+						<th style="border: none;">
 							<h4>氏名</h4>
 						</th>
-						<th>
+						<td style="border: none;">
 							<%= @customer.last_name %>
 							<%= @customer.first_name %>
-						</th>
+						</td>
 					</tr>
 					<tr>
-						<th>
+						<th style="border: none;">
 							<h4>フリガナ</h4>
 						</th>
-						<th>
+						<td style="border: none;">
 							<%= @customer.last_name_kana %>
 							<%= @customer.first_name_kana %>
-						</th>
+						</td>
 					</tr>
 					<tr>
-						<th>
+						<th style="border: none;">
 							<h4>郵便番号</h4>
 						</th>
-						<th>
+						<td style="border: none;">
 							<%= @customer.postal_code %>
-						</th>
+						</td>
 					</tr>
 					<tr>
-						<th>
+						<th style="border: none;">
 							<h4>住所</h4>
 						</th>
-						<th>
+						<td style="border: none;">
 							<%= @customer.address %>
-						</th>
+						</td>
 					</tr>
 					<tr>
-						<th>
+						<th style="border: none;">
 							<h4>電話番号</h4>
 						</th>
-						<th>
+						<td style="border: none;">
 							<%= @customer.tel %>
-						</th>
+						</td>
 					</tr>
 					<tr>
-						<th>
+						<th style="border: none;">
 							<h4>メールアドレス</h4>
 						</th>
-						<th>
+						<td style="border: none;">
 							<%= @customer.email %>
-						</th>
+						</td>
 					</tr>
 				</tbody>
 			</table>
-			<%= link_to '編集する', edit_staffs_customer_path(@customer), class: "btn btn-primary", data: {"turbolinks" => false} %>
-
-			<%= link_to '注文履歴一覧を見る', root_path, class: "btn btn-primary", data: {"turbolinks" => false} %>			
+			<div class="row">
+				<div class="col-xs-4">
+					<%= link_to '編集する', edit_staffs_customer_path(@customer), class: "btn btn-primary", data: {"turbolinks" => false} %>
+				</div>
+				<div class="col-xs-4">
+				<%= link_to '注文履歴一覧を見る', staffs_orders_path, class: "btn btn-primary", data: {"turbolinks" => false} %>
+				</div>
+			</div>
 		</div>
 	</dix>
 </div>
