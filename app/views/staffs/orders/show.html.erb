@@ -14,31 +14,42 @@
 			<p><strong>購入者</strong></p>
 		</div>
 		<div class ="col-xs-9">
-			<p>山田　花子</p>
+			<p><%= @order.customer.last_name + "　" + @order.customer.first_name%></p>
 		</div>
 	</div>
+
 	<div class="row">
 		<div class="col-xs-3">
 			<p><strong>配送先</strong></p>
 		</div>
 		<div class ="col-xs-9">
-			<p>〒150-0041　東京都渋谷区神南１丁目１９−１１　パークウェースクエア２４階</p>
+			<p>
+				<%= "〒" + @order.postcode_tosend.insert(3, "-")+ "　" + @order.address_tosend %></p>
 		</div>
 	</div>
+
 	<div class="row">
 		<div class="col-xs-3">
 			<p><strong>支払い方法</strong></p>
 		</div>
 		<div class ="col-xs-9">
-			<p>銀行振込</p>
+			<% if @order.pay == 0 %>
+				<p>クレジットカード</p>
+			<% else%>
+				<p>銀行振込</p>
+			<% end %>
 		</div>
 	</div>
+
 	<div class="row">
 		<div class="col-xs-3">
 			<p><strong>注文ステータス</strong></p>
 		</div>
 		<div class ="col-xs-9">
-			<p>入金待ち（enumで設定する）</p>
+			<%= form_for(@order, url:update_for_orderstatus_staffs_order_path) do |f| %>
+				<%= f.select :order_status, Order.order_statuses.keys.to_a %>
+				<%= f.submit "更新", class: "btn btn-xs btn-primary" %>
+			<% end %>
 		</div>
 	</div>
 </div>
@@ -57,13 +68,20 @@
 					</tr>
 				</thread>
 				<tbody>
+					<% @order.details.each do |order_detail|%>
 					<tr>
-						<td>洋梨のチーズタルト</td>
-						<td>1,200</td>
-						<td>1</td>
-						<td>1,200</td>
-						<td>着手不可（enumで設定する）</td>
+						<td><%= order_detail.product.name %></td>
+						<td><%= order_detail.product.price %></td>
+						<td><%= order_detail.product_vol %></td>
+						<td><%= order_detail.product.price * order_detail.product_vol %></td>
+						<td>
+							<%= form_for(order_detail, url:update_for_productionstatus_staffs_detail_path(order_detail.id)) do |f| %>
+								<%= f.select :production_status, Detail.production_statuses.keys.to_a %>
+								<%= f.submit "更新", class: "btn btn-xs btn-primary" %>
+							<% end %>
+						</td>
 					</tr>
+					<% end %>
 				</tbody>
 			</table>
 		</div>
@@ -73,7 +91,11 @@
 						<p><strong>商品合計</strong></p>
 				</div>
 				<div class="col-xs-4">
-						<p class="text-right">7,150円</p>
+					<% @total_price = 0 %>
+					<% @order.details.each do |order_detail|%>
+						<% @total_price += order_detail.product.price * order_detail.product_vol %>
+					<% end %>
+					<p class="text-right"><%= @total_price %></p>
 				</div>
 			</div>
 			<div class="row">
@@ -81,7 +103,7 @@
 					<p><strong>送料</strong></p>
 				</div>
 				<div class="col-xs-4">
-					<p class="text-right">800円</p>
+					<p class="text-right"><%= @order.send_fee %></p>
 				</div>
 			</div>
 			<div class="row">
@@ -89,7 +111,7 @@
 					<p><strong>請求金額合計</strong></p>
 				</div>
 				<div class="col-xs-4">
-					<p class="text-right">7,950円</p>
+					<p class="text-right"><%= @total_price + @order.send_fee.to_i %></p>
 				</div>
 			</div>
 		</div>
