@@ -1,6 +1,7 @@
 class DestinationsController < ApplicationController
 	def index
 		@destination = Destination.new
+		@destinations = Destination.all
 	end
 
 	def edit
@@ -17,6 +18,12 @@ class DestinationsController < ApplicationController
 		@destination = Destination.find(params[:id])
 		@destination.update(destination_params)
 		redirect_to destinations_path
+	end
+
+	def destroy
+		@destination = Destination.find(params[:id])
+		@destination.destroy
+		redirect_back(fallback_location: root_path)
 	end
 
 	private

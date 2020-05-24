@@ -215,20 +215,17 @@ body{
 }
 /* 会員ログイン画面 */
 
-/*会員新規登録画面 */
-form{
-  padding:30px 50px;
+/*会員トップページ */
+.bg_img {
+    border:  solid 1px;                             /* 枠線指定 */
+    display:  inline-block;                         /* インラインブロックにする */
+    padding: 100px 200px;                             /* 余白指定 */
+    background-image: url(publicdomainq-0021532nkj.jpg);
+    background-size: cover;
 }
-
-dl dt{
-  width: 165px;
-  padding:10px 0;
-  float:left;
-  clear:both;
-  margin-left: 300px;
+.bg_text {
+    padding:  20px 30px;        /* 余白指定 */
+    border: solid 2px;      /* 枠線指定 */
+    background-color: #FFFFFF;
 }
-
-dl dd{
-  padding:10px 0;
-}
-/*会員新規登録画面 */
+/*会員トップページ */
