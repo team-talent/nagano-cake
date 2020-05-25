@@ -9,11 +9,11 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th style="background-color: #d3d3d3;">注文日</th>
+            <th class="active">注文日</th>
             <th><%= @order.created_at %></th>
           </tr>
           <tr>
-            <th style="background-color: #d3d3d3;">配送先</th>
+            <th class="active">配送先</th>
             <th>
               <%= @order.postcode_tosend %><br>
               <%= @order.address_tosend %> <br>
@@ -21,11 +21,11 @@
             </th>
           </tr>
           <tr>
-            <th style="background-color: #d3d3d3;">支払方法</th>
+            <th class="active">支払方法</th>
             <th><%= @order.pay %></th>
           </tr>
           <tr>
-            <th style="background-color: #d3d3d3;">ステータス</th>
+            <th class="active">ステータス</th>
             <th><%= @order.order_status %></th>
           </tr>
         </thead>
@@ -37,15 +37,15 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th style="background-color: #d3d3d3;">商品合計</th>
+            <th class="active">商品合計</th>
             <th><%= @order.total_price %>円</th>
           </tr>
           <tr>
-            <th style="background-color: #d3d3d3;">送料</th>
+            <th class="active">送料</th>
             <th><%= @order.send_fee %>円</th>
           </tr>
           <tr>
-            <th style="background-color: #d3d3d3;">請求合計</th>
+            <th class="active">請求合計</th>
             <th><%= @order.total_price + (@order.send_fee).to_i %>円</th>
           </tr>
         </thead>
@@ -58,7 +58,7 @@
       <p>注文内容</p>
       <table class="table table-bordered">
         <thead>
-          <tr style="background-color: #d3d3d3;">
+          <tr class="active">
             <th>商品</th>
             <th>単価（税込）</th>
             <th>個数</th>

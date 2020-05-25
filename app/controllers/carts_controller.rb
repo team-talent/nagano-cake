@@ -5,7 +5,8 @@ class CartsController < ApplicationController
     @carts.each do |carts|
       array << carts.product.price * carts.vol
     end
-    @total = array.sum
+    subtotal = array.sum
+    @total = (subtotal * 1.1).round
 	end
 
   def create

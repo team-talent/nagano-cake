@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
-    <span class="pull-left" style="background-color: #d3d3d3; font-size: 2.0em; margin-bottom: 10px;">ショッピングカート
+    <span class="pull-left" style="background-color: #cccccc; font-size: 2.0em; margin-bottom: 10px;">ショッピングカート
     </span>
 
     <%= link_to 'カートを空にする', destroy_all_cart_path(current_customer), method: :delete, class: "btn btn-danger pull-right" %>
 
     <table class="table table-bordered">
       <thead>
-        <tr style="background-color: #d3d3d3;">
+        <tr class="active">
           <th>商品名</th>
           <th>単価（税込）</th>
           <th>数量</th>
@@ -19,14 +19,16 @@
         <% @carts.each do |cart| %>
           <tr>
             <td><%= cart.product.name %></td>
-            <td><%= cart.product.price %></td>
+            <td><% addtax = cart.product.price * 1.1 %>
+                <%= addtax.round %></td>
             <td>
               <%= form_for(cart) do |f| %>
                 <%= f.number_field :vol %>
                 <%= f.submit "変更",class: "btn btn-primary" %>
               <% end %>
             </td>
-            <td>￥　<%= cart.product.price * cart.vol %></td>
+            <td>￥　<% subtotal = addtax * cart.vol %>
+              <%= subtotal.round %></td>
             <td>
               <%= link_to '削除する', cart_path(cart), method: :delete, class: "btn btn-danger" %>
             </td>
@@ -34,8 +36,21 @@
         <% end %>
       </tbody>
     </table>
-    <%= link_to '買い物を続ける', products_path, class: "btn btn-primary" %>
-    <%= @total %>
+  </div>
+  <div class="row">
+    <div class="col-xs-1">
+      <%= link_to '買い物を続ける', root_path, class: "btn btn-primary" %>
+    </div>
+    <div class="col-xs-3 col-xs-offset-8">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="active">請求金額</th>
+            <th><%= @total %></th>
+          </tr>
+        </thead>
+      </table>
+    </div>
   </div>
 
   <%= link_to '情報入力に進む', new_order_path, class: "btn btn-success" %>

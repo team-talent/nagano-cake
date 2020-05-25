@@ -1,10 +1,11 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.all
+    @orders = current_customer.orders.all
   end
 
   def show
     @order = Order.find(params[:id])
+
   end
 
   def new
@@ -33,13 +34,14 @@ class OrdersController < ApplicationController
       Detail.create(
       order_id: order.id,
       product_vol: cart.vol,
-      product_price: cart.product.price,
+      product_price: (cart.product.price * 1.1).round,
       production_status:0,
       product_id: cart.product.id
       )
     end
     session[:order] = nil
     session[:destination] = nil
+    current_customer.carts.destroy_all
     redirect_to homes_thanks_path
   end
 
@@ -47,7 +49,7 @@ class OrdersController < ApplicationController
     @cart = Cart.where(customer_id: current_customer)
     session[:order] = Order.new()
     if params[:address].to_i == 2
-      session[:order][:pay] = params[:pay]
+      session[:order][:pay] = params[:pay].to_i
       session[:order][:postcode_tosend] = current_customer.postal_code
       session[:order][:address_tosend]  = current_customer.address
       session[:order][:name_tosend]     = current_customer.last_name + current_customer.first_name
@@ -55,7 +57,7 @@ class OrdersController < ApplicationController
     elsif params[:address].to_i == 3
       destination = current_customer.destinations.find(params[:order][:destination])
       session[:destination] = params[:order][:destination]
-      session[:order][:pay] = params[:pay]
+      session[:order][:pay] = params[:pay].to_i
       session[:order][:postcode_tosend] = destination.postcode_tosend
       session[:order][:address_tosend]  = destination.address_tosend
       session[:order][:name_tosend]     = destination.name_tosend
@@ -67,12 +69,11 @@ class OrdersController < ApplicationController
     else
       redirect_to orders_path
     end
-    total = 0
+    subtotal = 0
       @cart.each do |cart|
-      total += cart.product.price * cart.vol
+      subtotal += cart.product.price * cart.vol
     end
-    session[:order][:total_price] = total
-    @order = Order.new
+    session[:order][:total_price] = (subtotal * 1.1).round
   end
 
   private
