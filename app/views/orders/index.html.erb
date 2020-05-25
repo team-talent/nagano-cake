@@ -4,7 +4,7 @@
 
   <table class="table table-bordered">
     <thead>
-      <tr style="background-color: #d3d3d3;">
+      <tr class="active">
         <th>注文日</th>
         <th>配送先</th>
         <th>注文商品</th>
@@ -16,7 +16,7 @@
     <% @orders.each do |orders|%>
     <tbody>
       <tr>
-        <td><%= orders.created_at %></td>
+        <td><%= orders.created_at.in_time_zone('Japan').strftime("%Y/%m/%d %H:%M:%S") %></td>
         <td>
           <%= orders.postcode_tosend %><br>
           <%= orders.address_tosend %> <br>

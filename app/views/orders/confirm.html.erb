@@ -2,10 +2,12 @@
   <div class="row">
     <span class="pull-left" style="background-color: #d3d3d3; font-size: 2.0em; margin-bottom: 10px;">注文情報確認
     </span>
+  </div>
+  <div class="row">
     <div class="col-xs-7">
       <table class="table table-bordered">
         <thead>
-          <tr>
+          <tr class="active">
             <th>商品名</th>
             <th>単価（税込）</th>
             <th>数量</th>
@@ -16,9 +18,11 @@
         <tbody>
           <tr>
             <td><%= cart.product.name %></td>
-            <td><%= cart.product.price %></td>
+            <td><% addtax = cart.product.price * 1.1 %>
+                <%= addtax.round %></td>
             <td><%= cart.vol %></td>
-            <td><%= cart.product.price * cart.vol %></td>
+            <td><% subtotal = addtax * cart.vol %>
+              <%= subtotal.round %></td>
           </tr>
         </tbody>
         <% end %>
@@ -29,15 +33,15 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>送料</th>
+            <th class="active">送料</th>
             <th>800円</th>
           </tr>
           <tr>
-            <th>商品合計</th>
+            <th class="active">商品合計</th>
             <th><%= session[:order]["total_price"] %>円</th>
           </tr>
           <tr>
-            <th>請求合計</th>
+            <th class="active">請求合計</th>
             <th><%= session[:order]["total_price"] + 800 %>円</th>
           </tr>
         </thead>
