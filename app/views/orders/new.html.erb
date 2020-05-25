@@ -29,13 +29,7 @@
       <div>
         <%= f.radio_button :radio_button, 3, name: "address" %>
         <%= f.label :登録済住所から選択 %>
-        <%= f.collection_select(
-          :destination_id,
-          @destination,
-          :id,
-          :"@destination.postcode_tosend + @destination.address_tosend + @destination.name_tosend",
-         include_blank: "選択して下さい") %>
-
+        <%= f.select :destination, Destination.where(customer_id: current_customer.id).map { |a| [a.postcode_tosend + a.address_tosend + a.name_tosend, a.id]} %>
       </div>
 
       <div>

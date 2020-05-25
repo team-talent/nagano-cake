@@ -17,27 +17,29 @@ class OrdersController < ApplicationController
   def create
     order = current_customer.orders.new(session[:order])
     order.send_fee = 800
-    if order.save
-        destination = current_customer.destinations.new(
-        postcode_tosend: session[:order]["postcode_tosend"],
-        address_tosend:  session[:order]["address_tosend"],
-        name_tosend:     session[:order]["name_tosend"]
-        )
+    order.save
+    if session[:destination] == nil
+      destination = current_customer.destinations.new(
+      postcode_tosend: session[:order]["postcode_tosend"],
+      address_tosend:  session[:order]["address_tosend"],
+      name_tosend:     session[:order]["name_tosend"]
+      )
       destination.save
-
-      @cart = Cart.where(customer_id: current_customer)
-      @cart.each do |cart|
-        Detail.create(
-        order_id: order.id,
-        product_vol: cart.vol,
-        product_price: cart.product.price,
-        production_status:0,
-        product_id: cart.product.id
-        )
-      end
     else
     end
+
+    @cart = Cart.where(customer_id: current_customer)
+    @cart.each do |cart|
+      Detail.create(
+      order_id: order.id,
+      product_vol: cart.vol,
+      product_price: cart.product.price,
+      production_status:0,
+      product_id: cart.product.id
+      )
+    end
     session[:order] = nil
+    session[:destination] = nil
     redirect_to homes_thanks_path
   end
 
@@ -51,10 +53,12 @@ class OrdersController < ApplicationController
       session[:order][:name_tosend]     = current_customer.last_name + current_customer.first_name
       session[:order][:order_status] = 0
     elsif params[:address].to_i == 3
+      destination = current_customer.destinations.find(params[:order][:destination])
+      session[:destination] = params[:order][:destination]
       session[:order][:pay] = params[:pay]
-      session[:order][:postcode_tosend] = params[:destination_id].postcode_tosend
-      session[:order][:address_tosend]  = params[:destination_id].address_tosend
-      session[:order][:name_tosend]     = params[:destination_id].name_tosend
+      session[:order][:postcode_tosend] = destination.postcode_tosend
+      session[:order][:address_tosend]  = destination.address_tosend
+      session[:order][:name_tosend]     = destination.name_tosend
       session[:order][:order_status] = 0
     elsif params[:address].to_i == 4
       session[:order] = order_params
