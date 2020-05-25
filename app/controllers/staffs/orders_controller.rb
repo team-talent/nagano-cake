@@ -10,6 +10,13 @@ class Staffs::OrdersController < ApplicationController
 	def update_for_orderstatus
 		@order = Order.find(params[:id])
 		@order.update(order_params)
+		if @order.order_status == "入金確認"
+			@details = Detail.where(order_id: @order.id)
+			@details.each do |detail|
+				detail.update(production_status: "制作待ち")
+			end
+		end
+
 		@orders = Order.all
 		render :index
 	end
