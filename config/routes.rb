@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
 	namespace :staffs do
 		root "homes#top"
+		get 'searchs/search', to:'searches#search'
 		resources :customers, only:[:index, :show, :edit, :update]
 		resources :products, only:[:index, :show, :new, :edit, :create, :update]
 		resources :genres, only:[:index, :edit, :create, :update]
