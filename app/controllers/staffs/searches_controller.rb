@@ -7,7 +7,7 @@ class Staffs::SearchesController < ApplicationController
 
     def Customer.search(search)
 	    if search
-	      Customer.where(['last_name LIKE ? OR first_name LIKE ?',"%#{search}%","%#{search}%"])
+	      Customer.where(['last_name LIKE ? OR first_name LIKE ? OR email LIKE ?',"%#{search}%","%#{search}%","%#{search}%"])
 	    else
 	      Customer.all
 	    end
@@ -15,7 +15,7 @@ class Staffs::SearchesController < ApplicationController
 
 	def Product.search(search)
 		if search
-		Product.where(['name LIKE ?',"%#{search}%"])
+		Product.where(['name LIKE ? OR explain LIKE ?',"%#{search}%","%#{search}%"])
 		else
 		Product.all
 		end
