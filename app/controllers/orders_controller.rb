@@ -20,7 +20,11 @@ class OrdersController < ApplicationController
     order = current_customer.orders.new(session[:order])
     order.send_fee = 800
     if order.save
-      if Destination.exists?(session[:order]["address_tosend"])
+      if Destination.exists?(
+        address_tosend:  session[:order]["address_tosend"],
+        name_tosend:     session[:order]["name_tosend"]
+        )
+      else
         destination = current_customer.destinations.new(
         postcode_tosend: session[:order]["postcode_tosend"],
         address_tosend:  session[:order]["address_tosend"],
