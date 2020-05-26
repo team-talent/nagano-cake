@@ -1,4 +1,5 @@
 class DestinationsController < ApplicationController
+	before_action :authenticate_customer!
 	def index
 		@destination = Destination.new
 		@destinations = current_customer.destinations.all
@@ -10,14 +11,21 @@ class DestinationsController < ApplicationController
 
 	def create
 		@destination = Destination.new(destination_params)
-		@destination.save
-		redirect_back(fallback_location: root_path)
+		if @destination.save
+			redirect_back(fallback_location: root_path)
+	  else
+	  	@destinations = current_customer.destinations.all
+	  	render :index
+	  end
 	end
 
 	def update
 		@destination = Destination.find(params[:id])
-		@destination.update(destination_params)
-		redirect_to destinations_path
+		if @destination.update(destination_params)
+			redirect_to destinations_path
+		else
+			render :edit
+		end
 	end
 
 	def destroy

@@ -1,5 +1,5 @@
 class Staffs::ProductsController < ApplicationController
-
+	before_action :authenticate_staff!
 	def new
 		@product = Product.new
 		@genres = Genre.where(genre_status: true)
@@ -7,9 +7,13 @@ class Staffs::ProductsController < ApplicationController
 	end
 
 	def create
-		product = Product.new(product_params)
-		product.save
-		redirect_to staffs_product_path(product)
+		@product = Product.new(product_params)
+		if @product.save
+			redirect_to staffs_product_path(@product)
+		else
+			@genres = Genre.where(genre_status: true)
+			render :new
+		end
 	end
 
 	def index
@@ -29,8 +33,12 @@ class Staffs::ProductsController < ApplicationController
 
 	def update
 		@product = Product.find(params[:id])
-		@product.update(product_params)
-		redirect_to staffs_product_path(@product)
+		if @product.update(product_params)
+			redirect_to staffs_product_path(@product)
+		else
+			@genres = Genre.where(genre_status: true)
+			render :edit
+		end
 	end
 
 	private

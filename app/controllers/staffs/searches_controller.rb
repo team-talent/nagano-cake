@@ -1,4 +1,5 @@
 class Staffs::SearchesController < ApplicationController
+	before_action :authenticate_staff!
 	def search
 		@customers = Customer.search(params[:search])
 		@products = Product.search(params[:search])
