@@ -60,6 +60,7 @@ class OrdersController < ApplicationController
       session[:order][:name_tosend]     = current_customer.last_name + current_customer.first_name
       session[:order][:order_status] = 0
     elsif params[:address].to_i == 3
+      destination = current_customer.destinations.find(params[:order][:destination])
       session[:order][:pay] = params[:pay]
       session[:order][:postcode_tosend] = destination.postcode_tosend
       session[:order][:address_tosend]  = destination.address_tosend
