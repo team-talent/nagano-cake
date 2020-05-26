@@ -16,9 +16,16 @@
       <div class="container-fluid">
         
           <div class="navbar-header">
-          
-            <%= link_to root_path, class: "navbar-brand" do %>
-              <p class="logo-tytle">naganoCAKE</p>
+
+            <% if staff_signed_in? %>
+              <%= link_to staffs_root_path, class: "navbar-brand" do %>
+               <p class="logo-tytle">naganoCAKE</p>
+              <% end %>
+
+            <% else %>
+              <%= link_to root_path, class: "navbar-brand" do %>
+                <p class="logo-tytle">naganoCAKE</p>
+              <% end %>
             <% end %>
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">

@@ -9,5 +9,15 @@
 </div>
 
 <div class="order_count">
-	<p><strong>本日の注文件数　　　　　<%= link_to "#{@order_count}", staffs_orders_path %> 件</strong></p>
+	<% if @orders.map{|a| a.created_at.in_time_zone('Japan').strftime("%Y/%m/%d")}.include?(Date.today.in_time_zone('Japan').strftime("%Y/%m/%d")) == true %>
+
+		<% @order_today = @orders.map{|a| a.created_at.in_time_zone('Japan').strftime("%Y/%m/%d")} %>
+		<% @order_today.pluck(Date.today.in_time_zone('Japan').strftime("%Y/%m/%d")) %>
+		<p><strong>本日の注文件数　　　　　<%= link_to @order_today.count, staffs_orders_today_path %> 件</strong></p>
+
+	<% elsif @orders.map{|a| a.created_at.in_time_zone('Japan').strftime("%Y/%m/%d")}.include?(Date.today.in_time_zone('Japan').strftime("%Y/%m/%d")) == false %>
+		<p><strong>本日の注文件数　　　　　0 件</strong></p>
+
+	<% end %>
+
 </div>
