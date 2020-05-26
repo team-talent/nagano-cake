@@ -20,13 +20,14 @@ class OrdersController < ApplicationController
     order = current_customer.orders.new(session[:order])
     order.send_fee = 800
     if order.save
-      Destination.exists?(session[:order]["address_tosend"])
-      destination = current_customer.destinations.new(
-      postcode_tosend: session[:order]["postcode_tosend"],
-      address_tosend:  session[:order]["address_tosend"],
-      name_tosend:     session[:order]["name_tosend"]
-      )
-      destination.save
+      if Destination.exists?(session[:order]["address_tosend"])
+        destination = current_customer.destinations.new(
+        postcode_tosend: session[:order]["postcode_tosend"],
+        address_tosend:  session[:order]["address_tosend"],
+        name_tosend:     session[:order]["name_tosend"]
+        )
+        destination.save
+      end
 
       @cart = Cart.where(customer_id: current_customer)
       @cart.each do |cart|
@@ -60,6 +61,7 @@ class OrdersController < ApplicationController
       session[:order][:name_tosend]     = current_customer.last_name + current_customer.first_name
       session[:order][:order_status] = 0
     elsif params[:address].to_i == 3
+      destination = current_customer.destinations.find(params[:order][:destination])
       session[:order][:pay] = params[:pay]
       session[:order][:postcode_tosend] = destination.postcode_tosend
       session[:order][:address_tosend]  = destination.address_tosend
