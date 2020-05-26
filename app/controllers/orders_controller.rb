@@ -18,31 +18,35 @@ class OrdersController < ApplicationController
   def create
     order = current_customer.orders.new(session[:order])
     order.send_fee = 800
-    order.save
-    if Destination.exists?(session[:order]["address_tosend"])
+    if order.save
+      Destination.exists?(session[:order]["address_tosend"])
       destination = current_customer.destinations.new(
       postcode_tosend: session[:order]["postcode_tosend"],
       address_tosend:  session[:order]["address_tosend"],
       name_tosend:     session[:order]["name_tosend"]
       )
       destination.save
-    else
-    end
 
-    @cart = Cart.where(customer_id: current_customer)
-    @cart.each do |cart|
-      Detail.create(
-      order_id: order.id,
-      product_vol: cart.vol,
-      product_price: (cart.product.price * 1.1).round,
-      production_status:0,
-      product_id: cart.product.id
-      )
+      @cart = Cart.where(customer_id: current_customer)
+      @cart.each do |cart|
+        Detail.create(
+        order_id: order.id,
+        product_vol: cart.vol,
+        product_price: (cart.product.price * 1.1).round,
+        production_status:0,
+        product_id: cart.product.id
+        )
+      end
+      session[:order] = nil
+      session[:destination] = nil
+      current_customer.carts.destroy_all
+      redirect_to homes_thanks_path
+    else
+      @destination = Destination.where(customer_id: current_customer)
+      @order = Order.new
+      @orders = Order.all
+      render :new
     end
-    session[:order] = nil
-    session[:destination] = nil
-    current_customer.carts.destroy_all
-    redirect_to homes_thanks_path
   end
 
   def confirm
@@ -68,7 +72,7 @@ class OrdersController < ApplicationController
       redirect_to orders_path
     end
     subtotal = 0
-      @cart.each do |cart|
+    @cart.each do |cart|
       subtotal += cart.product.price * cart.vol
     end
     session[:order][:total_price] = (subtotal * 1.1).round

@@ -42,7 +42,7 @@
           </tr>
           <tr>
             <th class="active">請求合計</th>
-            <th><%= session[:order]["total_price"] + 800 %>円</th>
+            <th><%= (session[:order]["total_price"]).to_i + 800 %>円</th>
           </tr>
         </thead>
       </table>

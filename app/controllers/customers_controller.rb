@@ -10,8 +10,11 @@ class CustomersController < ApplicationController
 
 	def customers_update
 		@customer = current_customer
-		@customer.update(customer_params)
-		redirect_to customers_path
+		if @customer.update(customer_params)
+			redirect_to customers_path
+		else
+			render :edit_update
+		end
 	end
 
 	def hide
