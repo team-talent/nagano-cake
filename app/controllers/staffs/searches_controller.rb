@@ -20,5 +20,4 @@ class Staffs::SearchesController < ApplicationController
 		Product.all
 		end
 	end
-
 end
