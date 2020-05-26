@@ -17,6 +17,10 @@ class Staffs::CustomersController < ApplicationController
 		redirect_to staffs_customer_path(@customer)
 	end
 
+	def customer_orders
+		@customer = Customer.find(params[:id])
+	end
+
 	private
 	def customer_params
 		params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :tel, :email, :postal_code, :address, :customer_status)
