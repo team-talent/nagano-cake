@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  before_action :authenticate_customer!
 	def index
     @carts = current_customer.carts.all
     array = []
@@ -10,16 +11,10 @@ class CartsController < ApplicationController
 	end
 
   def create
-    if current_customer.carts.exists?(params[:cart]["product_id"])
-      @cart = current_customer.carts.find(params[:cart]["product_id"])
-      @cart.update(cart_params)
-      redirect_to carts_path
-    else
-      cart = Cart.new(cart_params)
-      cart.customer_id = current_customer.id
-      cart.save
-      redirect_to carts_path
-    end
+    cart = Cart.new(cart_params)
+    cart.customer_id = current_customer.id
+    cart.save
+    redirect_to carts_path
   end
 
   def update

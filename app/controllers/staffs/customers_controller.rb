@@ -1,4 +1,5 @@
 class Staffs::CustomersController < ApplicationController
+	before_action :authenticate_staff!
 	def index
         @customers = Customer.all
 	end

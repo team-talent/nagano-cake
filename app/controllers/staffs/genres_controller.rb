@@ -1,4 +1,5 @@
 class Staffs::GenresController < ApplicationController
+	before_action :authenticate_staff!
 	def create
 		@genre = Genre.new(genre_params)
 		if @genre.save

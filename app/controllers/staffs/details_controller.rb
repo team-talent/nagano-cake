@@ -1,4 +1,5 @@
 class Staffs::DetailsController < ApplicationController
+	before_action :authenticate_staff!
 	def update_for_productionstatus
 		@detail = Detail.find(params[:id])
 		@detail.update(detail_params)

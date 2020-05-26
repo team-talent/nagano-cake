@@ -1,5 +1,5 @@
 class Staffs::ProductsController < ApplicationController
-
+	before_action :authenticate_staff!
 	def new
 		@product = Product.new
 		@genres = Genre.where(genre_status: true)
