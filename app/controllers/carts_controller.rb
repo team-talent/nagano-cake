@@ -10,14 +10,20 @@ class CartsController < ApplicationController
 	end
 
   def create
-    cart = Cart.new(cart_params)
-    cart.customer_id = current_customer.id
-    cart.save
-    redirect_to carts_path
+    if current_customer.carts.exists?(params[:cart]["product_id"])
+      @cart = current_customer.carts.find(params[:cart]["product_id"])
+      @cart.update(cart_params)
+      redirect_to carts_path
+    else
+      cart = Cart.new(cart_params)
+      cart.customer_id = current_customer.id
+      cart.save
+      redirect_to carts_path
+    end
   end
 
   def update
-    @cart = Cart.find(params[:id])
+    @cart = current_customer.carts.find(params[:id])
     @cart.update(cart_params)
     redirect_back(fallback_location: root_path)
   end
