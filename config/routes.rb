@@ -32,17 +32,26 @@ Rails.application.routes.draw do
 	namespace :staffs do
 		root "homes#top"
 		get 'searchs/search', to:'searches#search'
-		resources :customers, only:[:index, :show, :edit, :update]
+		get 'orders/today', to:'orders#index_today'
+
+		resources :customers, only:[:index, :show, :edit, :update]do
+			member do
+				get :customer_orders
+			end
+		end
 		resources :products, only:[:index, :show, :new, :edit, :create, :update]
 		resources :genres, only:[:index, :edit, :create, :update]
 		resources :orders, only:[:index, :show]do
 			member do
 				patch :update_for_orderstatus
+				patch :update_for_orderstatus_individual
+				get :show_individual
 			end
 		end
 		resources :details, only:[]do
 			member do
 				patch :update_for_productionstatus
+				patch :update_for_productionstatus_individual
 			end
 		end
 	end

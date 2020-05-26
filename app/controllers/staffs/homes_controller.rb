@@ -1,5 +1,5 @@
 class Staffs::HomesController < ApplicationController
 	def top
-		@order_count = Order.all.count
+		@orders = Order.all
 	end
 end
