@@ -10,11 +10,11 @@
   <div class="row">
     <h4>支払方法</h4>
     <div>
-      <%= f.radio_button :pay, 0, name: "pay" %>
+      <%= f.radio_button :pay, "クレジットカード", name: "pay" %>
       <%= f.label :クレジットカード %>
     </div>
     <div>
-      <%= f.radio_button :pay, 1, name: "pay" %>
+      <%= f.radio_button :pay, "銀行振込", name: "pay" %>
       <%= f.label :銀行振込 %>
     </div>
   </div>
