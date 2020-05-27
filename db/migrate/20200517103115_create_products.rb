@@ -8,6 +8,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :image_id
       t.text :explain
       t.integer :sale_status
+      t.integer :recommend_status
       
       t.timestamps
     end
