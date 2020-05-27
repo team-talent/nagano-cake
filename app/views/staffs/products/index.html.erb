@@ -27,7 +27,8 @@
 						<th>商品名</th>
 						<th>税抜価格</th>
 						<th>ジャンル</th>
-						<th>ステータス</th>
+						<th>販売ステータス</th>
+						<th>おすすめステータス</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -44,6 +45,13 @@
 							<p>販売中</p>
 							<% else %>
 							<p>売切れ</p>
+							<% end %>
+						</td>
+						<td>
+						    <% if product.recommend_status == 1 %> 
+							<p>おすすめ</p>
+							<% else %>
+							<p>普通</p>
 							<% end %>
 						</td>
 					</tr>
