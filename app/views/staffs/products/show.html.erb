@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container staffs_product_show">
 	<div class="row">
 		<div class="col-xs-4 col-xs-offset-1">
 			<span style="display: block; margin-bottom: 30px; background-color: #cccccc; text-align: center;">
@@ -11,12 +11,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-4">
-			<div class="image" style="margin-left: 100px;">
-				<%= attachment_image_tag(@product, :image, size:'250x250', format: 'jpeg', class: "img-square pull-left profile-img", fallback: "no_image.jpg") %>
+			<div class="image" style="margin-left: 80px;">
+				<%= attachment_image_tag(@product, :image, format: 'jpeg', class: "img-square pull-left product_image", fallback: "no_image.jpg") %>
 			</div>
 		</div>
 
-		<div class="col-xs-7 col-xs-offset-1">
+		<div class="col-xs-6 col-xs-offset-2">
 			<div class="table-responsive">
 				<table class="table">
 					<tbody>

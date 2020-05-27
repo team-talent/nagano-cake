@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container staffs_product_edit">
 
 	<%= render 'layouts/errors', model: @product %>
 
@@ -18,8 +18,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-4  col-xs-offset-1">
-							<%= attachment_image_tag(@product, :image, size:'200x200', fallback: "no_image.jpg") %>
-							<%= f.attachment_field :image, class: "product_image" %>
+							<%= attachment_image_tag(@product, :image, fallback: "no_image.jpg", class: "product_image_edit")  %>
+							<%= f.attachment_field :image %>
 						</div>
 
 
