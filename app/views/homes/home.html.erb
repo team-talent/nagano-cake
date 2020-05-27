@@ -23,29 +23,25 @@
 
 			<h3>オススメ商品</h3>
 
-				<div class="col-xs-10">
-					<div>
-						<%= link_to product_path(@product1) do %>
-						<%= attachment_image_tag @product1, :image, fallback: "no_image.jpg", size:'100x80' %>
-						<% end %>
-						<p><%= @product1.name %></p>
-						<p>￥<%= @product1.price %></p>
-					</div>
-					<div>
-						<%= link_to product_path(@product2) do %>
-						<%= attachment_image_tag @product2, :image, fallback: "no_image.jpg", size:'100x80' %>
-						<% end %>
-						<p><%= @product2.name %></p>
-						<p>￥<%= @product2.price %></p>
-					</div>
-					<div>
-						<%= link_to product_path(@product3) do %>
-						<%= attachment_image_tag @product3, :image, fallback: "no_image.jpg", size:'100x80' %>
-						<% end %>
-						<p><%= @product3.name %></p>
-						<p>￥<%= @product3.price %></p>
-					</div>
+			<% @products.each do |product| %>
+
+				<% if product.sale_status == 1 %>
+
+				<div class="col-xs-3">
+
+					<%= link_to product_path(product.id) do %>
+					<%= attachment_image_tag product, :image, fallback: "no_image.jpg", size:'100x80' %>
+					<% end %>
+					<p><%= product.name %></p>
+					<p>￥<%= product.price %></p>
+
 				</div>
+
+
+				<% end %>
+
+			<% end %>
+
 		</div>
 
 
