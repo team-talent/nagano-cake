@@ -49,6 +49,16 @@
 								<% end %>
 							</td>
 						</tr>
+						<tr>
+							<th style="border: none;">おすすめステータス</th>
+							<td style="border: none;">
+								<% if @product.recommend_status == 1 %>
+								<p>おすすめ</p>
+								<% else %>
+								<p>普通</p>
+								<% end %>
+							</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>

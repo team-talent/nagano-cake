@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2020_05_23_104458) do
     t.string "image_id"
     t.text "explain"
     t.integer "sale_status"
+    t.integer "recommend_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
