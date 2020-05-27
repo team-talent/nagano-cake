@@ -2,11 +2,13 @@
 <table class="table">
   <tbody>
     <% genres.each do |genre| %>
-    <tr>
-      <th>
-        <%= link_to genre.category_name, genre_product_index_product_path(genre) %>
-      </th>
-    </tr>
+	    <% if genre.genre_status == true %>
+		    <tr>
+		      <th>
+		        <%= link_to genre.category_name, genre_product_index_product_path(genre) %>
+		      </th>
+		    </tr>
+		<% end %>
     <% end %>
   </tbody>
 </table>

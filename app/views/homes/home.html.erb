@@ -25,14 +25,21 @@
 
 			<% @products.each do |product| %>
 
-				<% if product.sale_status == 1 %>
+				<% if product.recommend_status == 1 %>
 
 				<div class="col-xs-3">
 
 					<%= link_to product_path(product.id) do %>
-					<%= attachment_image_tag product, :image, fallback: "no_image.jpg", size:'100x80' %>
+					<%= attachment_image_tag product, :image, fallback: "no_image.jpg", size:'200x160' %>
 					<% end %>
-					<p><%= product.name %></p>
+					<p>
+						<%= product.name %>
+						<% if product.sale_status  == 1 %>
+               			(販売中)
+						<% else %>
+						(売り切れ)
+						<% end %>
+					</p>
 					<p>￥<%= product.price %></p>
 
 				</div>
