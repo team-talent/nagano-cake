@@ -11,9 +11,15 @@ class CartsController < ApplicationController
 	end
 
   def create
-    cart = Cart.new(cart_params)
-    cart.customer_id = current_customer.id
-    cart.save
+    if current_customer.carts.exists?(product_id: params[:cart][:product_id])
+      cart = Cart.find_by(product_id: params[:cart][:product_id])
+      cart.increment(:vol, params[:cart][:vol].to_i)
+      cart.save
+    else
+      cart = Cart.new(cart_params)
+      cart.customer_id = current_customer.id
+      cart.save
+    end
     redirect_to carts_path
   end
 
