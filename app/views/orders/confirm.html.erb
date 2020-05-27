@@ -17,7 +17,7 @@
         <% @cart.each do |cart| %>
         <tbody>
           <tr>
-            <td><%= cart.product.name %></td>
+            <td><%= attachment_image_tag cart.product, :image, fallback: "no_image.jpg", width: "auto", height: "40" %> <%= cart.product.name %></td>
             <td><% addtax = cart.product.price * 1.1 %>
                 <%= addtax.round %></td>
             <td><%= cart.vol %></td>
@@ -59,7 +59,9 @@
     <%= session[:order]["address_tosend"] %>
     <%= session[:order]["name_tosend"] %>
   </div>
-<%= link_to "確定", orders_path, method: :post, class: "btn btn-danger" %>
-
-  <%= link_to "入力画面に戻る", new_order_path, class: "btn btn-danger" %>
+  <div class="row">
+    <div class="col-xs-2 col-xs-offset-5">
+    <%= link_to "購入を確定する", orders_path, method: :post, class: "btn btn-success" %>
+    </div>
+  </div>
 </div>
