@@ -1,5 +1,5 @@
-# アプリ名
-ながのcake
+# ながのcake
+
 ![nagano-cake](https://user-images.githubusercontent.com/61785826/82977362-90609a80-a01c-11ea-9f75-d17b7c380ac1.jpg)
 
 
