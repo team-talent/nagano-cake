@@ -16,7 +16,14 @@
               <%= attachment_image_tag product, :image, fallback: "no_image.jpg", width: "auto", height: "100", class: "text-center" %>
             <% end %>
           </div>
-          <div class="row"><%= product.name %></div>
+          <div class="row">
+            <%= product.name %>
+              <% if product.sale_status  == 1 %>
+               (販売中)
+              <% else %>
+               (売り切れ)
+              <% end %>
+            </div>
           <div class="row">￥<%= product.price %></div>
         </div>
         <% end %>
