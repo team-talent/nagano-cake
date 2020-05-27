@@ -7,41 +7,56 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Londrina+Shadow" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
   <body>
 
-    <header class="navbar navbar-fixed-top" style="background-color: gray;">
-      <div class="container">
-        <nav class="nav navbar-nav navber-left">
-             <div class="logo" style="">
-               <span style="color: white;">LOGO</span>
-             </div>
-        </nav>
-        <nav>
-        <ul class="nav navbar-nav navbar-right">
+    <nav class="navbar navbar-fixed-top navbar-default" style="background-color:pink; ">
+      <div class="container-fluid">
+        
+          <div class="navbar-header">
 
-            <% if customer_signed_in? %>
+            <% if staff_signed_in? %>
+              <%= link_to staffs_root_path, class: "navbar-brand" do %>
+               <p class="logo-tytle">naganoCAKE</p>
+              <% end %>
 
-             <%= render"layouts/customer_header" %>
+            <% else %>
+              <%= link_to root_path, class: "navbar-brand" do %>
+                <p class="logo-tytle">naganoCAKE</p>
+              <% end %>
+            <% end %>
 
-          <% elsif staff_signed_in? %>
-            
-            <%= render"layouts/staff_header" %>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
+              <span class="sr-only">メニュー</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
 
-          <% else %>
-
-         
-          <li><%= link_to ' 商品一覧', customer_session_path, class:"btn btn-default btn-xs"  %></li>
-          <li><%= link_to ' 新規登録', new_customer_registration_path, class:"btn btn-default btn-xs"  %></li>
-          <li><%= link_to ' ログイン', new_customer_session_path, class:"btn btn-default btn-xs"  %></li>
-          </li>
-          <% end %>
-        </ul>
-
-      </nav>
+          <div id="gnavi" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right menu">
+              <% if customer_signed_in? %>
+                    <%= render"layouts/customer_header" %>
+              <% elsif staff_signed_in? %>
+                    <%= render"layouts/staff_header" %>
+              <% else %>
+              <li><%= link_to ' 商品一覧', products_path, class:"btn btn-default btn-sm allbtn"  %></li>
+              <li><%= link_to ' 新規登録', new_customer_registration_path, class:"btn btn-default btn-sm allbtn", data: {"turbolinks" => false}  %></li>
+              <li><%= link_to ' アバウト', homes_about_path, class:"btn btn-default btn-sm allbtn"  %></li>
+              <li><%= link_to ' ログイン', new_customer_session_path, class:"btn btn-default btn-sm allbtn"  %></li>
+              <% end %>
+            </ul>
+          </div>
+        
       </div>
-    </header>
+    </nav>
 
     <%= yield %>
   </body>

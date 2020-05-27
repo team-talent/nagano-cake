@@ -23,14 +23,121 @@
 	box-sizing:border-box;
 }
 
-header {
-    height:70px;
-}
-
 body{
 	margin-top:150px;
 }
 
+
+/*ヘッダー部分 */
+
+.navbar-header{
+	height:90px;
+}
+
+.navbar-default{
+	border-color: pink;
+}
+
+.navbar-toggle{
+	position: relative;
+    float: right;
+    margin-right: 15px;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: white;
+    background-image: none;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: white;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: black;
+}
+
+.navbar-brand {
+  background: url("logo.png") no-repeat;
+  background-size: contain;
+  height: 50px;
+  width: 370px;
+  background-position: right 0% bottom 0%;
+  margin-top:20px;
+}
+
+.logo-tytle{
+	color:white;
+	font-family: 'Londrina Shadow', cursive;
+	font-size:60px;
+}
+
+.cusbtn{
+	background:white;
+    font-weight: 600;
+    border-radius:20px;
+    margin-top:5px;
+    margin-left:5px;
+}
+
+.allbtn{
+	background:white;
+    font-weight: 600;
+    border-radius:20px;
+    margin-top:20px;
+    margin-left:5px;
+}
+
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+    max-height: 500px;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: white;
+}
+
+.welcome_text{
+	padding-left:10px;
+	padding-top:5px;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #ffbbbb94;
+}
+
+.submit_btn{
+	position:absolute;
+	height:50px;
+	background:none;
+	color:#666;
+	border:none;
+	height:24px;
+	width:24px;
+	outline:0;
+	right:3%;
+	top:30%;
+}
+
+.menu{
+	margin-right:0px;
+	margin-left:-1px;
+}
+
+/*ヘッダー部分 */
+
+
+/*管理者新規登録画面用 */
+
+.password_confirmation_input{
+	width: 300px;
+    height: 40px;
+    margin-left:20px;
+    margin-bottom:40px;
+}
+
+/*管理者新規登録画面用 */
 
 /* 管理者ログイン画面用 */
 
@@ -44,7 +151,6 @@ body{
 	width: 300px;
     height: 40px;
     margin-left:20px;
-    margin-bottom:40px;
 }
 
 .title_staffs_login{
@@ -83,3 +189,75 @@ body{
 	text-align: center;
 }
 
+/* 管理者ジャンル一覧・追加画面用 */
+
+
+/* 管理者注文履歴一覧画面用 */
+
+.title_staffs_orders{
+	display:block;
+	margin-bottom:100px;
+	background-color:#CCCCCC;
+	text-align: center;
+}
+
+/* 管理者注文履歴一覧画面用 */
+
+
+/* 管理者履歴詳細画面用 */
+
+.title_staffs_orders_show{
+	display:block;
+	margin-bottom:50px;
+	background-color:#CCCCCC;
+	text-align: center;
+}
+
+/* 管理者履歴詳細画面用 */
+
+
+/* 会員ログイン画面 */
+.title_backcolor{
+	display:block;
+	margin-bottom:30px;
+	background-color:#CCCCCC;
+	text-align: center;
+}
+/* 会員ログイン画面 */
+
+/*会員トップページ */
+.bg_img {
+    border:  solid 1px;                             /* 枠線指定 */
+    display:  inline-block;                         /* インラインブロックにする */
+    padding: 100px 200px;                             /* 余白指定 */
+    background-image: url(publicdomainq-0021532nkj.jpg);
+    background-size: cover;
+}
+.bg_text {
+    padding:  20px 30px;        /* 余白指定 */
+    border: solid 2px;      /* 枠線指定 */
+    background-color: #FFFFFF;
+}
+/*会員トップページ */
+
+/*アバウトページ */
+.about-title {
+	font-size: 56px;
+}
+.about-member {
+	font-size: 40px;
+	margin-top:150px;
+}
+.member {
+	font-size: 20px;
+	margin-top:40px;
+}
+.about-info {
+	font-size: 40px;
+	margin-top:150px;
+}
+.info {
+	font-size: 20px;
+	margin-top:40px;
+}
+/*アバウトページ */

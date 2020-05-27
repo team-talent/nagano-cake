@@ -1,54 +1,86 @@
 <div class="container">
-	<dix class="row">
-		<div class="col-xs-5">
 
+	<%= render 'layouts/errors', model: @product %>
 
-　　　　　　<h2>商品編集</h2>
-
-          <%= form_for(@product,url:staffs_product_path) do |f| %>
-
-				<%= attachment_image_tag(@product, :image, size:'150x150', fallback: "no_image.jpg") %>
-				<%= f.attachment_field :image, class: "product_image" %>
-
+	<div class="row">
+		<div class="col-xs-5 col-xs-offset-1">
+			<span style="display: block; margin-bottom: 30px; background-color: #cccccc; text-align: center;">
+				<h3>商品編集</h3>
+			</span>
 		</div>
-		<div class="col-xs-7">
-			<table class="table">
-				<tbody>
-				    <tr>
-						<td>
-							<h4>商品名</h4>
-							<%= f.text_field :name %>
-						</td>
-					</tr>
-					<tr>
-                 		<td>
-							<h4>商品説明</h4>
-							<%= f.text_area :explain %>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>ジャンル</h4>
-							<%= f.collection_select :genre_id, @genres, :id, :category_name, include_blank: "選択して下さい" %>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>税抜き価格</h4>
-
-							<%= f.text_field :price %>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<h4>販売ステータス</h4>
-							<%= f.select :sale_status,[["販売中", "1"], ["売切れ", "2"]], include_blank: "選択して下さい" %>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		        <%= f.submit '変更を保存', class: "btn-sm btn-success"%>
-		  <% end %>
-	    </div>
-	</dix>
+	</div>
 </div>
+
+
+		<%= form_for(@product,url:staffs_product_path) do |f| %>
+			<form class="form-horizontal" role="form">
+
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-4  col-xs-offset-1">
+							<%= attachment_image_tag(@product, :image, size:'200x200', fallback: "no_image.jpg") %>
+							<%= f.attachment_field :image, class: "product_image" %>
+						</div>
+
+
+
+
+						<div class="col-xs-4">
+							<div class="container">
+
+								<div class="row" style="margin-bottom: 20px;">
+									<div class="col-xs-2">
+										<%= f.label :name, '商品名', class: 'control-label' %>
+									</div>
+									<div class="col-xs-2">
+										<%= f.text_field :name %>
+									</div>
+								</div>
+
+								<div class="row" style="margin-bottom: 20px;">
+									<div class="col-xs-2">
+										<%= f.label :explain, '商品説明', class: 'control-label' %>
+									</div>
+									<div class="col-xs-2">
+										<%= f.text_area :explain %>
+									</div>
+								</div>
+
+								<div class="row" style="margin-bottom: 20px;">
+									<div class="col-xs-2">
+										<%= f.label :genre_id, 'ジャンル', class: 'control-label' %>
+									</div>
+									<div class="col-xs-2">
+										<%= f.collection_select :genre_id, @genres, :id, :category_name, include_blank: "選択して下さい" %>
+									</div>
+								</div>
+
+								<div class="row" style="margin-bottom: 20px;">
+									<div class="col-xs-2">
+										<%= f.label :price, '税抜き価格', class: 'control-label' %>
+									</div>
+									<div class="col-xs-2">
+										<%= f.text_field :price %>
+									</div>
+								</div>
+
+								<div class="row" style="margin-bottom: 20px;">
+									<div class="col-xs-2">
+										<%= f.label :sale_status, '販売ステータス', class: 'control-label' %>
+									</div>
+									<div class="col-xs-2">
+										<%= f.select :sale_status,[["販売中", "1"], ["売切れ", "2"]], include_blank: "選択して下さい" %>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-6">
+		        					<%= f.submit '変更を保存', class: "btn btn-primary pull-right"%>
+		        					</div>
+		        				</div>
+	        				</div>
+	        			</div>
+	        		</div>
+	        	</div>
+        	</form>
+  			<% end %>

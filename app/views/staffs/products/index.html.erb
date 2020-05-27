@@ -1,11 +1,28 @@
 <div class="container">
-	<dix class="row">
-		<div class="col-xs-9 col-xs-offset-1">
-			<h2>商品一覧</h2>
+	<div class="row">
+		<div class="col-xs-4 col-xs-offset-1">
+			<span style="display: block; margin-bottom: 10px; background-color: #cccccc; text-align: center;">
+				<h3>商品一覧</h3>
+			</span>
+		</div>
+	</div>
+</div>
 
-			<table class="table">
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1">
+
+            <p class="text-right">
+	            <%= link_to new_staffs_product_path(@product), data: {"turbolinks" => false} do %>
+					<button class="btn-circle-kirby" style="outline: 0;display: inline-block; text-decoration: none; color: #f9a9ae; width: 35px; height: 35px; line-height: 20px; border-radius: 50%; text-align: center; overflow: hidden; font-weight: bold; background-image: linear-gradient(#fed6e3 0%, #ffaaaa 100%); text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66); box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+				<% end %>
+		    </p>
+
+			<table class="table ">
 				<thead>
-					<tr>
+					<tr class="active">
 						<th>商品ID</th>
 						<th>商品名</th>
 						<th>税抜価格</th>
@@ -17,7 +34,9 @@
 					<% @products.each do |product| %>
 					<tr>
 						<td><%= product.id %></td>
-						<td><%= link_to product.name, staffs_product_path(product.id), class: "product_#{product.id}" %></td>
+						<td>
+							<u><%= link_to product.name, staffs_product_path(product.id), class: "product_#{product.id}" %></u>
+						</td>
 						<td><%= product.price %></td>
 						<td><%= product.genre.category_name %></td>
 						<td>
@@ -32,5 +51,5 @@
 				</tbody>
 			</table>
 		</div>
-	</dix>
+	</div>
 </div>

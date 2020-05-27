@@ -1,29 +1,111 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-1">
+      <span class="title_backcolor">
+        <h3>新規会員登録</h3>
+      </span>
+    </div>
+  </div>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="container">
+  <div class="form-group">
+    <div class="field row">
+      <%= f.label :name, "名前", class: "col-xs-2" %>
+      <div class="col-xs-1 text-right">(姓)</div>
+      <%= f.text_field :last_name, class: "col-xs-2" %>
+      <div class="col-xs-1 text-right">(名)</div>
+      <%= f.text_field :first_name, class: "col-xs-2" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="form-group">
+    <div class="field row">
+      <%= f.label :name_kana, "フリガナ", class: "col-xs-2" %>
+      <div class="col-xs-1 text-right">(セイ)</div>
+      <%= f.text_field :last_name_kana, class: "col-xs-2" %>
+      <div class="col-xs-1 text-right">(メイ)</div>
+      <%= f.text_field :first_name_kana, class: "col-xs-2" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="form-group">
+    <div class="field row">
+      <%= f.label :email, "メールアドレス", class: "col-xs-2" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-xs-2 col-xs-offset-1" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="form-group">
+    <div class="field row">
+      <%= f.label :postal_code, "郵便番号(ハイフンなし)", class: "col-xs-2" %>
+      <%= f.text_field :postal_code, class: "customer_postal_code col-xs-2 col-xs-offset-1" %>
+    </div>
   </div>
+
+  <div class="form-group">
+    <div class="field row">
+      <%= f.label :address, "住所", class: "col-xs-2" %>
+      <%= f.text_field :address, class: "customer_address col-xs-5 col-xs-offset-1" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="field row">
+      <%= f.label :tel, "電話番号(ハイフンなし)", class: "col-xs-2" %>
+      <%= f.text_field :tel, class: "col-xs-2 col-xs-offset-1" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="field row">
+      <%= f.label :password, "パスワード(6文字以上)", class: "col-xs-2" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "col-xs-2 col-xs-offset-1" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="field row">
+      <%= f.label :password_confirmation, "パスワード(確認用)", class: "col-xs-2" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-xs-2 col-xs-offset-1" %>
+    </div>
+  </div>
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-7 col-xs-offset-4">
+        <div class="actions">
+          <%= f.submit "新規登録", class: "btn btn-success btn-lg" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-1">
+        <span class="title_backcolor">
+          <h3>既に登録済みの方</h3>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="ol-xs-8 col-xs-offset-3">
+        <p><%= link_to "こちら", new_session_path(resource_name) %>からログインしてください</p>
+      </div>
+    </div>
+  </div>
+
+
 <% end %>
-
-<%= render "customers/shared/links" %>

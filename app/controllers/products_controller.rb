@@ -11,6 +11,8 @@ class ProductsController < ApplicationController
   end
 
   def genre_product_index
-    @products = Product.
+    @genres = Genre.all
+    @genre = Genre.find(params[:id])
+    @products = @genre.products.all
   end
 end

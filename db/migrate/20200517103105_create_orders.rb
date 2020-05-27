@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
     create_table :orders do |t|
 
       t.integer :customer_id
-      t.string :send_fee
+      t.integer :send_fee
       t.integer :total_price
       t.integer :pay
       t.string :name_tosend

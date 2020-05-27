@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_17_103115) do
+ActiveRecord::Schema.define(version: 2020_05_23_104458) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "customer_id"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_05_17_103115) do
     t.string "tel"
     t.string "postal_code"
     t.string "address"
-    t.boolean "customer_status"
+    t.boolean "customer_status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -50,13 +50,13 @@ ActiveRecord::Schema.define(version: 2020_05_17_103115) do
   end
 
   create_table "details", force: :cascade do |t|
-    t.integer "customer_id"
     t.integer "order_id"
     t.integer "product_vol"
     t.integer "product_price"
     t.integer "production_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "product_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2020_05_17_103115) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id"
-    t.string "send_fee"
+    t.integer "send_fee"
     t.integer "total_price"
     t.integer "pay"
     t.string "name_tosend"

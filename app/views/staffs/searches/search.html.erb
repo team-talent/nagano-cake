@@ -1,0 +1,76 @@
+<div class="container">
+	<dix class="row">
+		<div class="col-xs-4 col-xs-offset-1">
+			<span style="display: block; margin-bottom: 10px; background-color: #cccccc; text-align: center;">
+				<h3>検索結果</h3>
+			</span>
+		</div>
+	</dix>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1">
+			<table class="table ">
+				<thead>
+					<tr class="active">
+						<th>商品ID</th>
+						<th>商品名</th>
+						<th>税抜価格</th>
+						<th>ジャンル</th>
+						<th>ステータス</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @products.each do |product| %>
+					<tr>
+						<td><%= product.id %></td>
+						<td>
+							<u><%= link_to product.name, staffs_product_path(product.id), class: "product_#{product.id}" %></u>
+						</td>
+						<td><%= product.price %></td>
+						<td><%= product.genre.category_name %></td>
+						<td>
+		   					<% if product.sale_status == 1 %>
+								<p>販売中</p>
+							<% else %>
+								<p>売切れ</p>
+							<% end %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+
+			<table class="table">
+				<thead>
+					<tr class="active">
+						<th>会員ID</th>
+						<th>氏名</th>
+						<th>メールアドレス</th>
+						<th>ステータス</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @customers.each do |customer| %>
+						<tr>
+							<td><%= customer.id %></td>
+							<% name= customer.last_name + customer.first_name %>
+							<td>
+								<u><%= link_to name, staffs_customer_path(customer.id), class: "customer_#{customer.id}" %></u>
+							</td>
+							<td><%= customer.email %></td>
+							<td>
+								<% if customer.customer_status == false %>
+					 				<p>有効</p>
+								<% else %>
+					  				<p>退会済</p>
+								<% end %>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

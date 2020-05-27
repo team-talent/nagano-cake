@@ -9,7 +9,12 @@
 </div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= render "devise/shared/error_messages", resource: resource %>
+
   <div class="container">
+    <% if alert %>
+    <p class="alert alert-error"><%= alert %></p>
+    <% end %>
     <div class="row">
       <div class="col-xs-8 col-xs-offset-3">
           <div class="form-group">
