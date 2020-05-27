@@ -261,3 +261,34 @@ body{
 	margin-top:40px;
 }
 /*アバウトページ */
+
+.product_image{
+	width: 150%;
+min-width: 100px;
+	
+}
+
+.product_image_edit{
+	width: 100%;
+min-width: 100px;
+	
+}
+
+
+@media (max-width: 868px){
+.staffs_top, .staffs_orders_today, .staffs_orders_show_individual, .staffs_orders_show, .staffs_customer_index, .staffs_customers_show, .staffs_customers_edit, .staffs_customers_customer_orders, .staffs_orders_index, .staffs_genres_index, .staffs_genres_edit, .staffs_product_index, .staffs_product_show, .staffs_product_new, .staffs_productindex, .staffs_product_edit{
+    margin-top: -30px;
+}
+}
+
+@media (min-width: 768px){
+.staffs_top, .staffs_orders_today, .staffs_orders_show_individual, .staffs_orders_show, .staffs_customer_index, .staffs_customers_show, .staffs_customers_edit, .staffs_customers_customer_orders, .staffs_orders_index, .staffs_genres_index, .staffs_genres_edit, .staffs_product_index, .staffs_product_show, .staffs_product_new, .staffs_productindex, .staffs_product_edit{
+    margin-top: 240px;
+}
+}
+
+@media (min-width: 869px){
+.staffs_top, .staffs_orders_today, .staffs_orders_show_individual, .staffs_orders_show, .staffs_customer_index, .staffs_customers_show, .staffs_customers_edit, .staffs_customers_customer_orders, .staffs_orders_index, .staffs_genres_index, .staffs_genres_edit, .staffs_product_index, .staffs_product_show, .staffs_product_new, .staffs_productindex, .staffs_product_edit{
+    margin-top: 30px;
+}
+}
