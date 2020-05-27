@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
 	def home
-		@products = Product.order("RANDOM()").limit(4)
+		@products = Product.all
 		@genres = Genre.all
 	end
 
