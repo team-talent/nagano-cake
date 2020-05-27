@@ -40,11 +40,11 @@
         <%= f.label :新しいお届け先 %>
         <div>
           <%= f.label :郵便番号（ハイフンなし） %>
-          <%= f.text_field :postcode_tosend %>
+          <%= f.text_field :postcode_tosend, class: "order_postcode_tosend" %>
         </div>
         <div>
           <%= f.label :住所 %>
-          <%= f.text_field :address_tosend %>
+          <%= f.text_field :address_tosend, class: "order_address_tosend" %>
         </div>
         <div>
           <%= f.label :宛名 %>
