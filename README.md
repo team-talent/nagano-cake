@@ -1,6 +1,6 @@
 # アプリ名
 ながのcake
-![Uploading nagano-cake.jpg…]()
+
 
 ## サイト概要
 ながのcakeは、長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト。  
