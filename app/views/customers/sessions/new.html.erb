@@ -10,11 +10,11 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="container">
-    <% if alert %>
-    <p class="alert alert-error"><%= alert %></p>
-    <% end %>
     <div class="row">
       <div class="col-xs-8 col-xs-offset-3">
+        <% if alert %>
+          <p class="alert alert-error"><%= alert %></p>
+        <% end %>
         <div class="form-group">
         <%= f.label :email, :メールアドレス %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "email_input" %>
