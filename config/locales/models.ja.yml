@@ -1,5 +1,12 @@
 ja:
   activerecord:
+    models:
+      customer: 顧客
+      destination: 配送先
+      genre: ジャンル
+      product: 商品
+      cart: カート
+      staff: 管理者
     attributes:
       customer:
         email: メールアドレス
@@ -27,5 +34,8 @@ ja:
         image_id: 画像
         explain: 商品説明
         sale_status: 販売ステータス
-      carts:
+      cart:
         vol: 注文数
+      staff:
+        email: メールアドレス
+        password: パスワード
