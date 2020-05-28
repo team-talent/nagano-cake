@@ -15,12 +15,19 @@ class CartsController < ApplicationController
       cart = Cart.find_by(product_id: params[:cart][:product_id])
       cart.increment(:vol, params[:cart][:vol].to_i)
       cart.save
+      redirect_to carts_path
     else
       cart = Cart.new(cart_params)
       cart.customer_id = current_customer.id
-      cart.save
+      if cart.save
+        redirect_to carts_path
+      else
+        @product = Product.find(params[:cart][:product_id])
+        @cart = Cart.new
+        @genres = Genre.all
+        render "products/show"
+      end
     end
-    redirect_to carts_path
   end
 
   def update
